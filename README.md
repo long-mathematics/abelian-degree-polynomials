@@ -2,20 +2,21 @@
 
 Concise alternative proofs of spectral comparison on abelian varieties, with applications to the Riemann hypothesis for curves and global function fields.
 
-## Current papers — start here
+## Current papers — choose by mathematical scope
 
-**The recommended edition is the two-paper revision of 27 November 2026 ([PR #2](https://github.com/long-mathematics/abelian-degree-polynomials/pull/2)).** These are complementary papers, not successive versions of each other. Neither of the earlier papers is required reading.
+**Three current papers, all dated 27 November 2026.** Each proves the full classical Riemann hypothesis for curves over finite fields (equivalently, global function fields) via the Jacobian. They also give the Frobenius eigenvalue moduli in every cohomological degree of abelian varieties. The longer papers establish substantially stronger *abelian-variety* results, not a stronger RH for curves.
 
-| | Current paper | Files |
-| --- | --- | --- |
-| **Main paper — read first** | **Finite-time spectral comparison on abelian varieties** (4 pages). Rosati positivity, sharp norm bounds, exact Jordan growth, nilpotency, strict-gap constants and composition. | [PDF](papers/abelian_comparison_streamlined.pdf) · [LaTeX](papers/abelian_comparison_streamlined.tex) |
-| **Companion — fewer prerequisites** | **Spectral comparison by polynomial interpolation** (3 pages). Actual mixed-degree limits without Rosati or Riemann–Roch, plus a particularly short proof of curve/function-field RH. | [PDF](papers/abelian_comparison_elementary.pdf) · [LaTeX](papers/abelian_comparison_elementary.tex) |
+| Role and length | Paper | What it proves beyond curve RH | Prerequisites for spectral argument | Files |
+| --- | --- | --- | --- | --- |
+| **Paper I — shortest standalone RH proof (1 page)** | A single-scale proof of the Riemann hypothesis for curves over finite fields | Spectral circle for polarized group endomorphisms; all abelian Frobenius weights. No semisimplicity or general comparison. | Degree polynomial, theorem of the cube, mixed nef positivity | [PDF](papers/curve_rh_single_scale.pdf) · [LaTeX](papers/curve_rh_single_scale.tex) |
+| **Paper II — elementary generalization (3 pages)** | Spectral comparison by polynomial interpolation | Paper I's polarized RH argument plus all-codimension numerical/cohomological spectral comparison for arbitrary endomorphisms, odd-degree formula and actual growth limits. No semisimplicity assertion. | Paper I inputs plus exterior cohomology, cycle classes, Khovanskii–Teissier and interpolation | [PDF](papers/abelian_comparison_elementary.pdf) · [LaTeX](papers/abelian_comparison_elementary.tex) |
+| **Paper III — strongest main research paper (4 pages)** | Finite-time spectral comparison on abelian varieties | Polarized RH and semisimplicity in all degrees; sharp finite-time norm and composition bounds, exact positive-radius Jordan growth, nilpotency and strict-gap constants, general comparison. | Classical polarization/Rosati theory, Riemann–Roch, degree identity, finite-dimensional endomorphism algebra and cohomology | [PDF](papers/abelian_comparison_streamlined.pdf) · [LaTeX](papers/abelian_comparison_streamlined.tex) |
 
-For curve RH alone, read Section 1 of the elementary companion. For the strongest quantitative results, read the main paper. For both approaches, read the current pair above.
+**Reading guide:** for RH alone, read Paper I. For the broader comparison with fewer geometric prerequisites, read Paper II. For the strongest quantitative and structural results, read Paper III. These are complementary notes, not successive versions of one manuscript. Paper I is a standalone extraction of Section 1 of Paper II; Papers II and III were introduced in [PR #2](https://github.com/long-mathematics/abelian-degree-polynomials/pull/2).
 
-**Status:** audited expository proofs of established theorems, with explicit quantitative consequences. The project claims neither a new RH theorem nor priority for its proof methods. Its scope is abelian varieties and curves, not arbitrary-sheaf Weil II. The reviews are AI-assisted, not independent human peer review or formal proof verification.
+**Scope:** all three prove the same curve RH statement, namely reciprocal-root moduli equal to the square root of the field size. None proves the classical number-field RH or the full Weil conjectures/Weil II for arbitrary varieties and sheaves. The results are classical or consequences of known theorems; no historical shortest-proof or method-priority claim is made. The audits are AI-assisted, not independent human peer review or formal proof verification.
 
-The two initial notes from [PR #1](https://github.com/long-mathematics/abelian-degree-polynomials/pull/1) are **superseded as recommended reading**. They remain available for historical and alternative-proof comparison; see the [paper index and version history](papers/README.md#historical-notes-superseded). All existing PDF and source URLs are preserved.
+The two initial notes from [PR #1](https://github.com/long-mathematics/abelian-degree-polynomials/pull/1) are **historical/superseded as recommended reading**. Their mathematical arguments and stable URLs remain available; see the [paper index and version history](papers/README.md#historical-notes-superseded).
 
 ## Main results of the current papers
 
@@ -90,7 +91,7 @@ The most important overlaps are:
   Zhang 2611.30749v1 motivated the revisit. Their arbitrary-sheaf theorem has
   broader scope and is not replaced by these abelian arguments.
 
-The original exposed-vertex presentation is retained as a historical alternative; the two current papers are the recommended edition.
+The original exposed-vertex presentation is retained as a historical alternative; the three current papers are the recommended edition.
 The value of these revisions is explicit constants, proofs with stated
 prerequisites, and corrected edge cases. The search does not certify
 originality or priority.
@@ -148,7 +149,7 @@ in [audit/build_manifest.json](audit/build_manifest.json). It downloads no
 TeX resources. PDF bytes can differ across TeX distributions; the manifest
 identifies the actual generated files.
 
-The GitHub Actions workflow runs both check scripts and rebuilds all four PDFs (the two current papers and the two historical notes). A
+The GitHub Actions workflow runs both check scripts and rebuilds all five PDFs (the three current papers and the two historical notes). A
 configured workflow is not evidence of a completed remote CI run; see the
 actual pull-request checks for that status.
 
