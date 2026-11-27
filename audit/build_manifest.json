@@ -29,6 +29,14 @@
       "pdf": "papers/abelian_comparison_elementary.pdf",
       "pdf_sha256": "b01eb0621dbf4ff706b945b762aef4216e4b39e14119ff4d1883c25055e4eb6d",
       "passes": 2
+    },
+    {
+      "source": "papers/curve_rh_single_scale.tex",
+      "source_sha256": "7bf562c3cd0b3790908951d54446a27d4dd3bf15bf557e2f2d0f023aea12475e",
+      "pdf": "papers/curve_rh_single_scale.pdf",
+      "pdf_sha256": "324dda4987436f56e09517ed804502328e77276fd6a11e17ed7ad1cb80d8b2ce",
+      "passes": 2,
+      "engine": "pdfTeX 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian)"
     }
   ]
 }

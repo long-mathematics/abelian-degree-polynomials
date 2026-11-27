@@ -27,19 +27,6 @@ jobs:
           sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended lmodern
       - name: Compile manuscripts
         run: python scripts/build_pdfs.py
-      - name: Transfer public standalone manuscript build
-        run: |
-          python - <<'PY'
-          import base64, hashlib
-          from pathlib import Path
-          p = Path("papers/curve_rh_single_scale.pdf")
-          data = p.read_bytes()
-          print("CURVE_PDF_HASH=" + hashlib.sha256(data).hexdigest())
-          print("CURVE_TEX_HASH=" + hashlib.sha256(p.with_suffix(".tex").read_bytes()).hexdigest())
-          b = base64.b64encode(data).decode("ascii")
-          for i in range(0, len(b), 3000):
-              print("CURVE_PDF_CHUNK=" + b[i:i+3000])
-          PY
       - name: Preserve rebuilt PDFs and source hashes
         uses: actions/upload-artifact@v7
         with:
