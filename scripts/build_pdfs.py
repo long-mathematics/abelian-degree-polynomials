@@ -21,7 +21,8 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS = ("short_curve_rh_proof", "abelian_all_degrees_proof",
-          "abelian_comparison_streamlined", "abelian_comparison_elementary")
+          "abelian_comparison_streamlined", "abelian_comparison_elementary",
+          "curve_rh_single_scale")
 
 
 def sha256(path: Path) -> str:

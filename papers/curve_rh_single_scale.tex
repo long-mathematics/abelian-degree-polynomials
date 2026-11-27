@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.88in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,microtype}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+\begin{center}
+{\Large\bfseries A single-scale proof of the Riemann hypothesis\\for curves over finite fields}\par\smallskip
+{\small Research note prepared for Christopher D. Long \quad 27 November 2026}
+\end{center}\smallskip
+\noindent
+Let $A$ be an abelian variety of dimension $g>0$ over an algebraically closed
+field and $H$ a symmetric ample divisor class. For a group endomorphism $u$,
+write $P_u(t)=\det(t-u\mid V_\ell A)$, where $V_\ell A=T_\ell A\otimes\mathbb Q_\ell$ and $\ell$ is a prime different from the characteristic.
+We use the classical degree identity $P_u(a/b)=b^{-2g}\deg([a]-[b]u)$
+($a\in\mathbb Z$, $b\in\mathbb Z_{>0}$), with degree zero for non-isogenies,
+the theorem of the cube, and positivity of mixed nef intersections. In
+particular, $(u^*H)^g=\deg(u)H^g$. These facts precede finite-field RH
+\cite{Mumford,Milne}. Divisor equalities below are numerical.
+
+\begin{theorem}
+If a group endomorphism $f$ satisfies $f^*H=dH$ with $d>0$, every complex characteristic root of $f$ has
+modulus $\sqrt d$.
+\end{theorem}
+\begin{proof}
+For rational $t=a/b$, put
+$X=b^{-2}([a]-[b]u)^*H$ and $Y=b^{-2}([a]+[b]u)^*H$.
+Both are nef, and the cube gives $X+Y=2(t^2H+u^*H)$. Thus
+$0\le X^g\le(X+Y)^g$; dividing by $H^g$ and using the degree identity gives,
+by polynomial continuity for every real $t$,
+\[
+0\le P_u(t)\le 2^g\frac{(t^2H+u^*H)^g}{H^g}.
+\]
+For $u=f^n$ and $t_n=2d^{n/2}$ this reads $P_{f^n}(t_n)\le10^g d^{gn}$.
+For each root $\alpha$ of $P_f$, the triangle inequalities give
+$|t_n-\alpha^n|^{1/n}\to\max(\sqrt d,|\alpha|)$: at equality of moduli,
+$1\le |2-(\alpha/\sqrt d)^n|\le3$. Factoring the polynomial and taking
+$n$th roots yields
+\[
+\prod_{j=1}^{2g}\max(\sqrt d,|\alpha_j|)\le d^g.
+\]
+Every factor is at least $\sqrt d$, so every $|\alpha_j|\le\sqrt d$.
+But $\prod_j|\alpha_j|=\deg f=d^g$, forcing equality for every root.
+\end{proof}
+
+\noindent\textbf{Curve and global-function-field RH.}
+Let $C/\mathbb F_q$ be a smooth projective geometrically connected curve of
+genus $g$. For $g>0$, the $q$-power Frobenius endomorphism of $\operatorname{Jac} C$
+pulls back an $\mathbb F_q$-defined symmetric ample line bundle to its $q$th
+tensor power. The standard Jacobian identification in degree one and the
+curve trace formula give
+\[
+Z_C(T)=\frac{\prod_{j=1}^{2g}(1-\alpha_j T)}{(1-T)(1-qT)},\quad
+|\alpha_j|=\sqrt q,\qquad
+|\#C(\mathbb F_{q^n})-q^n-1|\le 2gq^{n/2}.
+\]
+Genus zero is immediate. This is RH for the function field with its full
+constant field. Exterior powers also give Frobenius root moduli $q^{i/2}$ on
+$H^i$ of abelian varieties over $\mathbb F_q$.
+
+\smallskip\noindent\textbf{Scope.}
+This is a standalone extraction of the critical-scale argument in the
+companion note \emph{Spectral comparison by polynomial interpolation}.
+It uses no Rosati involution, Riemann--Roch, Khovanskii--Teissier, or trace
+estimate as an additional input to the spectral argument. It does not prove
+semisimplicity, general dynamical-degree comparison, or arbitrary-sheaf
+Weil II. The longer companion papers address stronger abelian results.
+The theorem is classical; no historical shortest-proof or priority claim is made.
+
+\begingroup\small\setlength{\itemsep}{0pt}\begin{thebibliography}{9}
+\bibitem{Mumford} D. Mumford, \emph{Abelian Varieties}, 2nd ed., Oxford, 1974, \S\S6, 19.
+\bibitem{Milne} J. S. Milne, \emph{The Riemann Hypothesis over Finite Fields: From Weil to the Present Day}, 2015, \S1. \url{https://www.jmilne.org/math/xnotes/pRH.pdf}.
+\end{thebibliography}\endgroup
+\end{document}
