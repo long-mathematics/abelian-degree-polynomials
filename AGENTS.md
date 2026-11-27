@@ -13,3 +13,7 @@
   are neither a formal verification nor a proof of the general theorems.
 - Record substantive mathematical and literature changes in `AUDIT.md` and
   `LITERATURE.md`; date source-version checks explicitly.
+
+- Keep the root README and `papers/README.md` synchronized. Explicitly label
+  current main and companion papers separately from historical/superseded
+  notes, identify replacements, and preserve existing PDF/source URLs.

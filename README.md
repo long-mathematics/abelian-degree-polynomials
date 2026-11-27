@@ -1,29 +1,23 @@
 # Abelian degree polynomials
 
-Concise expository proofs of classical polarized spectral bounds and the
-numerical/cohomological degree comparison for abelian varieties, using degree
-polynomials and intersection positivity.
+Concise alternative proofs of spectral comparison on abelian varieties, with applications to the Riemann hypothesis for curves and global function fields.
 
-**Status, 27 November 2026:** the mathematical audit found no fatal gap under
-the stated standard prerequisites. The theorems are established results, and
-the literature contains close precedents for the proof strategy. This project
-claims neither a new RH theorem nor historical shortest-proof or method
-priority. It does not prove arbitrary-sheaf Weil II.
+## Current papers — start here
 
-## Manuscripts
+**The recommended edition is the two-paper revision of 27 November 2026 ([PR #2](https://github.com/long-mathematics/abelian-degree-polynomials/pull/2)).** These are complementary papers, not successive versions of each other. Neither of the earlier papers is required reading.
 
-The recommended starting point is the streamlined note. The elementary
-companion reaches actual degree-growth limits with fewer geometric inputs.
-The two earlier notes remain available for comparison.
-
-| Note | PDF | Editable source |
+| | Current paper | Files |
 | --- | --- | --- |
-| Finite-time spectral comparison on abelian varieties | [PDF](papers/abelian_comparison_streamlined.pdf) | [LaTeX](papers/abelian_comparison_streamlined.tex) |
-| Spectral comparison by polynomial interpolation | [PDF](papers/abelian_comparison_elementary.pdf) | [LaTeX](papers/abelian_comparison_elementary.tex) |
-| A quadratic proof of finite-field RH for curves | [PDF](papers/short_curve_rh_proof.pdf) | [LaTeX](papers/short_curve_rh_proof.tex) |
-| A degree-polynomial proof of spectral comparison in every codimension on an abelian variety | [PDF](papers/abelian_all_degrees_proof.pdf) | [LaTeX](papers/abelian_all_degrees_proof.tex) |
+| **Main paper — read first** | **Finite-time spectral comparison on abelian varieties** (4 pages). Rosati positivity, sharp norm bounds, exact Jordan growth, nilpotency, strict-gap constants and composition. | [PDF](papers/abelian_comparison_streamlined.pdf) · [LaTeX](papers/abelian_comparison_streamlined.tex) |
+| **Companion — fewer prerequisites** | **Spectral comparison by polynomial interpolation** (3 pages). Actual mixed-degree limits without Rosati or Riemann–Roch, plus a particularly short proof of curve/function-field RH. | [PDF](papers/abelian_comparison_elementary.pdf) · [LaTeX](papers/abelian_comparison_elementary.tex) |
 
-## Streamlined revision
+For curve RH alone, read Section 1 of the elementary companion. For the strongest quantitative results, read the main paper. For both approaches, read the current pair above.
+
+**Status:** audited expository proofs of established theorems, with explicit quantitative consequences. The project claims neither a new RH theorem nor priority for its proof methods. Its scope is abelian varieties and curves, not arbitrary-sheaf Weil II. The reviews are AI-assisted, not independent human peer review or formal proof verification.
+
+The two initial notes from [PR #1](https://github.com/long-mathematics/abelian-degree-polynomials/pull/1) are **superseded as recommended reading**. They remain available for historical and alternative-proof comparison; see the [paper index and version history](papers/README.md#historical-notes-superseded). All existing PDF and source URLs are preserved.
+
+## Main results of the current papers
 
 With one Hermitian form compatible with Rosati, the main note proves
 
@@ -63,43 +57,6 @@ regression checks. In particular, growth estimates involving
 $n^{m-1}\rho^n$ are stated only for $\rho>0$; nilpotent actions are
 handled separately.
 
-## Earlier arguments
-
-The earlier curve note obtains the classical inequality
-
-$$
-|\operatorname{Tr}(u\mid V_\ell A)|^2
-\le 4g^2\frac{u^*H\cdot H^{g-1}}{H^g}
-$$
-
-from the discriminant of a nef quadratic family. If $f^*H=dH$, iteration
-and the classical power-sum lemma give $|\alpha|=\sqrt d$. A second ending
-uses the positive quadratic form on the endomorphism algebra to prove
-semisimplicity as well. Frobenius on a curve's Jacobian gives curve and
-global-function-field RH. This is a compact Weil–Rosati presentation.
-
-The earlier all-codimension note retains the full mixed-degree majorant
-
-$$
-0\le P_{f^n}(t)\le
-2^g\sum_{j=0}^g\binom gj t^{2(g-j)}\delta_j(n),
-\qquad
-\delta_j(n)=\frac{((f^n)^*H)^jH^{g-j}}{H^g}.
-$$
-
-Choosing $t=2R^n$ between distinct root moduli isolates one growth rate.
-Khovanskii–Teissier log-concavity recovers the indices in repeated-modulus
-blocks. The resulting known formulas are
-
-$$
-\lim_{n\to\infty}\delta_k(n)^{1/n}=\lambda_k=\chi_{2k},
-\qquad \chi_{2k+1}=\sqrt{\lambda_k\lambda_{k+1}}.
-$$
-
-The note includes a nonoptimal quantitative byproduct, the non-surjective
-extension, and bounds for the difference of two maps with a common
-polarization. No semisimplicity assumption is used in the comparison proof.
-
 ## Prior work and scope
 
 The detailed, version-dated review is in [LITERATURE.md](LITERATURE.md).
@@ -133,8 +90,7 @@ The most important overlaps are:
   Zhang 2611.30749v1 motivated the revisit. Their arbitrary-sheaf theorem has
   broader scope and is not replaced by these abelian arguments.
 
-The original exposed-vertex presentation is retained, alongside the
-classification-free norm proof and the elementary interpolation proof.
+The original exposed-vertex presentation is retained as a historical alternative; the two current papers are the recommended edition.
 The value of these revisions is explicit constants, proofs with stated
 prerequisites, and corrected edge cases. The search does not certify
 originality or priority.
@@ -192,7 +148,7 @@ in [audit/build_manifest.json](audit/build_manifest.json). It downloads no
 TeX resources. PDF bytes can differ across TeX distributions; the manifest
 identifies the actual generated files.
 
-The GitHub Actions workflow runs both check scripts and rebuilds all four PDFs. A
+The GitHub Actions workflow runs both check scripts and rebuilds all four PDFs (the two current papers and the two historical notes). A
 configured workflow is not evidence of a completed remote CI run; see the
 actual pull-request checks for that status.
 
