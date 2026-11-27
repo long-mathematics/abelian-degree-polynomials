@@ -12,12 +12,60 @@ priority. It does not prove arbitrary-sheaf Weil II.
 
 ## Manuscripts
 
+The recommended starting point is the streamlined note. The elementary
+companion reaches actual degree-growth limits with fewer geometric inputs.
+The two earlier notes remain available for comparison.
+
 | Note | PDF | Editable source |
 | --- | --- | --- |
+| Finite-time spectral comparison on abelian varieties | [PDF](papers/abelian_comparison_streamlined.pdf) | [LaTeX](papers/abelian_comparison_streamlined.tex) |
+| Spectral comparison by polynomial interpolation | [PDF](papers/abelian_comparison_elementary.pdf) | [LaTeX](papers/abelian_comparison_elementary.tex) |
 | A quadratic proof of finite-field RH for curves | [PDF](papers/short_curve_rh_proof.pdf) | [LaTeX](papers/short_curve_rh_proof.tex) |
 | A degree-polynomial proof of spectral comparison in every codimension on an abelian variety | [PDF](papers/abelian_all_degrees_proof.pdf) | [LaTeX](papers/abelian_all_degrees_proof.tex) |
 
-The first note obtains the classical inequality
+## Streamlined revision
+
+With one Hermitian form compatible with Rosati, the main note proves
+
+$$
+\binom gk\delta_k(u)=e_k(t_1,\ldots,t_g),\qquad
+\delta_k(u)\le\|\wedge^{2k}u\|\le\binom gk\delta_k(u),
+$$
+
+where the squared singular values are $t_1,t_1,\ldots,t_g,t_g$.
+The identity is Hu's; the explicit binomial factor is sharp. A quotient of
+a finite sum of regular modules supplies the Hermitian form, avoiding a
+classification or simple-factor decomposition.
+
+The resulting consequences include actual limits for every endomorphism,
+exact exponential-polynomial growth at positive radius, equality of largest
+peripheral Jordan sizes on numerical classes and even cohomology, and
+equality of nilpotency indices at zero radius. The two latter conclusions
+also follow from Hu's published uniform norm comparison. The note gives
+the strict-gap leading constant as the norm of the dominant spectral
+projection divided by $\binom gk$, and proves the sharp composition bound
+
+$$
+\delta_k(uv)\le\binom gk\delta_k(u)\delta_k(v).
+$$
+
+The elementary companion uses polynomial coefficient interpolation,
+Khovanskii–Teissier, and a bounded block of consecutive traces. Nef
+dominance bounds all those future degrees by the present degree. This
+proves **actual limits and an every-iterate positive-radius lower bound**
+without Rosati, Riemann–Roch, an isogeny hypothesis, or spectral-gap
+analysis. Its curve RH specialization uses the single scale
+$t_n=2d^{n/2}$ and no trace lemma.
+
+See [the revision audit](audit/streamlined/REVISION.md) for corrections to
+the supplied draft, the precise scope of the improvements, and additional
+regression checks. In particular, growth estimates involving
+$n^{m-1}\rho^n$ are stated only for $\rho>0$; nilpotent actions are
+handled separately.
+
+## Earlier arguments
+
+The earlier curve note obtains the classical inequality
 
 $$
 |\operatorname{Tr}(u\mid V_\ell A)|^2
@@ -30,7 +78,7 @@ uses the positive quadratic form on the endomorphism algebra to prove
 semisimplicity as well. Frobenius on a curve's Jacobian gives curve and
 global-function-field RH. This is a compact Weil–Rosati presentation.
 
-The second note retains the full mixed-degree majorant
+The earlier all-codimension note retains the full mixed-degree majorant
 
 $$
 0\le P_{f^n}(t)\le
@@ -63,7 +111,12 @@ The most important overlaps are:
   is classical too.
 - **Fei Hu, J. Algebraic Geometry 33 (2024), 265–293:** Theorem 1.9 is the
   abelian all-codimension comparison; Remark 5.5 already states the odd-degree
-  formula. The rational degree identity is Theorem 2.3.
+  formula. The rational degree identity is Theorem 2.3. Corollary 1.7 and
+  equation (5.5) give the mixed-degree/singular-value identity; Corollary 5.6
+  gives uniform norm comparison for every self-morphism.
+- **Milne, Introduction to Shimura Varieties (2005), Proposition 8.10:**
+  the compatible positive-form principle used in the streamlined note is
+  classical.
 - **Junyi Xie, arXiv:2412.01216v2:** the even comparison holds much more
   generally, for surjective endomorphisms of smooth projective varieties.
   Section 2.5 is a close precedent for the exposed-vertex/concavity strategy;
@@ -73,13 +126,17 @@ The most important overlaps are:
 - **Hu–Jiang, arXiv:2609.29877v1, 24 September 2026:** the polynomial-growth
   estimates are stronger than this note's quantitative byproduct, and apply
   to normal projective varieties in arbitrary characteristic.
+- **Hu, arXiv:2610.18094v1, 13 October 2026:** Theorem 1.5 already gives
+  exact positive leading asymptotics at strict breaks, with the same
+  exponential remainder threshold, in broader rational/meromorphic scope.
 - **November 2026 finite-field exposition:** Hexagon 2611.00789v2 and
   Zhang 2611.30749v1 motivated the revisit. Their arbitrary-sheaf theorem has
   broader scope and is not replaced by these abelian arguments.
 
-The presentation-specific feature is the abelian degree-polynomial majorant
-combined with the existing exposed-vertex strategy. The inspected sources
-did not reveal this exact combination, but the search does not certify
+The original exposed-vertex presentation is retained, alongside the
+classification-free norm proof and the elementary interpolation proof.
+The value of these revisions is explicit constants, proofs with stated
+prerequisites, and corrected edge cases. The search does not certify
 originality or priority.
 
 ## Audit and verification
@@ -94,6 +151,13 @@ The recorded run passed **4,399 assertions**, covering 48 distinct matrices,
 96 matrix/iterate cases, 672 rational shifts, Jordan growth, and noncommuting
 similitudes. See [the guide](audit/exact_checks.md) and
 [the actual JSON output](audit/exact_checks.json).
+
+[scripts/check_streamlined.py](scripts/check_streamlined.py) adds exact
+regression checks for the sharp composition constant, nilpotent exception,
+Jordan growth, strict-gap projector coefficient, and a flat-spectrum
+nonconvergence example. Its recorded run passes **117 assertions**, making
+**4,516** across both scripts. See its [guide](audit/streamlined/exact_checks.md)
+and [recorded output](audit/streamlined/exact_checks.json).
 
 These are normalization and example checks. They are not a formal proof,
 external peer review, or computational certification of arbitrary abelian
@@ -128,7 +192,7 @@ in [audit/build_manifest.json](audit/build_manifest.json). It downloads no
 TeX resources. PDF bytes can differ across TeX distributions; the manifest
 identifies the actual generated files.
 
-The GitHub Actions workflow runs the same checks and rebuilds both PDFs. A
+The GitHub Actions workflow runs both check scripts and rebuilds all four PDFs. A
 configured workflow is not evidence of a completed remote CI run; see the
 actual pull-request checks for that status.
 

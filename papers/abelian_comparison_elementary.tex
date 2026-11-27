@@ -1,0 +1,248 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\End}{\operatorname{End}}\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Q}{\mathbb Q}\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathsf N}
+\title{\vspace{-1.5em}Spectral comparison by polynomial interpolation}
+\author{\small Research note prepared for Christopher D. Long}
+\date{\small 27 November 2026}
+\begin{document}
+\maketitle\vspace{-1.2em}
+\begin{abstract}
+A nef polynomial majorant and Khovanskii--Teissier give pointwise bounds
+for exterior-power traces. Interpolation in a bounded block of consecutive
+traces then recovers actual mixed-degree limits, including non-isogenies,
+without a spectral-gap argument. A specialization of the same majorant
+gives the polarized spectral circle at one critical scale. This companion
+to the Rosati note uses neither Riemann--Roch nor the endomorphism-algebra
+classification, and claims no theorem or proof priority.
+\end{abstract}
+
+\section{One nef majorant}
+Let $A/K$ be an abelian variety of dimension $g>0$, $K$ algebraically
+closed, $H$ a symmetric ample class, and
+$V=V_\ell A\otimes_{\Q_\ell,\iota}\C$ for an abstract embedding
+$\iota:\overline\Q_\ell\hookrightarrow\C$ and
+$\ell\ne\operatorname{char}K$. For $u\in\End(A)$ put
+\[
+ P_u(t)=\det(t-u\mid V),\quad
+ \delta_j(u)=\frac{(u^*H)^jH^{g-j}}{H^g},\quad
+ M_u(s)=\sum_{j=0}^g\binom gj\delta_j(u)s^{g-j}.
+ \tag{1}
+\]
+We use the degree identity
+$P_u(a/b)=b^{-2g}\deg([a]-[b]u)$ for $b>0$, with degree zero for
+non-isogenies; the cube; nonnegative mixed nef intersections and
+$(u^*H)^g=\deg(u)H^g$; the
+exterior-algebra description of cohomology; and compatibility of cycle
+classes with intersection and pullback. Divisor equalities are numerical.
+The all-codimension argument also uses Khovanskii--Teissier for nef classes,
+obtainable by ample approximation and surface Hodge index on complete
+intersections. No Rosati involution, Riemann--Roch, or finite dimensionality
+of $\End^0(A)$ is used.
+
+\begin{lemma}\label{majorant}
+For every real $t$ and every endomorphism $u$,
+\[
+ 0\le P_u(t)\le 2^g M_u(t^2).
+ \tag{2}
+\]
+\end{lemma}
+\begin{proof}
+For $t=a/b$, the classes
+$X=b^{-2}([a]-[b]u)^*H$ and $Y=b^{-2}([a]+[b]u)^*H$ are nef, and the
+cube gives $X+Y=2(t^2H+u^*H)$. Thus
+$0\le X^g\le(X+Y)^g$. Divide by $H^g$ and use the degree identity.
+Continuity extends the polynomial inequality from rational to real $t$.
+\end{proof}
+
+\begin{corollary}[Polarized spectral circle]\label{circle}
+If $f^*H=dH$, $d>0$, all characteristic roots of $f$ have modulus $\sqrt d$.
+\end{corollary}
+\begin{proof}
+Put $t_n=2d^{n/2}$. Equation (2) gives
+$P_{f^n}(t_n)\le10^g d^{gn}$. For each characteristic root $\alpha$,
+$|t_n-\alpha^n|^{1/n}\to\max(\sqrt d,|\alpha|)$; when
+$|\alpha|=\sqrt d$, the normalized factor lies between $1$ and $3$.
+Taking $n$th roots yields
+$\prod_\alpha\max(\sqrt d,|\alpha|)\le d^g$, so all
+$|\alpha|\le\sqrt d$. Finally $\prod_\alpha|\alpha|=\deg f=d^g$
+forces equality.
+\end{proof}
+This needs no traces, power-sum lemma, root-pairing lemma, or
+Khovanskii--Teissier. Apply it to the $q$-power Frobenius on a curve's
+Jacobian with an $\mathbb F_q$-defined symmetric ample line bundle.
+The standard Jacobian identification and curve trace formula give curve
+and global-function-field RH and the point-count error $2gq^{n/2}$
+\cite{MilneRH}.
+Genus zero is immediate. Semisimplicity uses the additional positivity
+structure in the companion Rosati note.
+
+\section{Coefficients and a bounded block of traces}
+\begin{lemma}[Pointwise exterior traces]\label{coefficients}
+There is a constant $C_g$ depending only on $g$ such that, for $0\le k\le g$,
+\[
+ |\Tr(\wedge^{2k}u)|\le C_g\delta_k(u),\qquad
+ |\Tr(\wedge^{2k+1}u)|\le C_g\sqrt{\delta_k(u)\delta_{k+1}(u)}.
+ \tag{3}
+\]
+The second bound is for $0\le k<g$.
+\end{lemma}
+\begin{proof}
+Fix $2g+1$ distinct nodes in $[-1,1]$. Inverting their Vandermonde
+matrix gives a constant $K_g$ bounding every coefficient of a degree
+$2g$ polynomial by $K_g$ times the largest absolute value at the nodes.
+Apply this to $P_u(Rx)$, using (2) and $|x|\le1$. Since its coefficient
+of $x^{2g-m}$ is $(-1)^m\Tr(\wedge^m u)R^{2g-m}$,
+\[
+ |\Tr(\wedge^m u)|\le
+ 2^gK_g\sum_{j=0}^g\binom gj R^{m-2j}\delta_j(u),\qquad R>0.
+ \tag{4}
+\]
+Write $h=\max\{j:\delta_j(u)>0\}$. There are no internal zeros:
+apply log-concavity to $u^*H+\varepsilon H$, whose mixed degrees are
+positive, and interpolate between indices $0$ and $h$; as
+$\varepsilon\downarrow0$ this gives
+$\delta_j(u)\ge\delta_h(u)^{j/h}>0$ for $0\le j\le h$ when $h>0$.
+Thus the ratios $\delta_{j+1}/\delta_j$ on this initial segment decrease.
+
+For $m=2k$, $1\le k<h$, choose $R^2=\delta_k/\delta_{k-1}$;
+then every $R^{2(k-j)}\delta_j$ is at most $\delta_k$.
+For $m=2k+1$, $0\le k<h$, choose $R^2=\delta_{k+1}/\delta_k$;
+every $R^{2k+1-2j}\delta_j$ is at most
+$\sqrt{\delta_k\delta_{k+1}}$.
+For $m\ge2h$, let $R\downarrow0$ in (4), leaving only the $j=h$
+term when $m=2h$, and zero when $m>2h$.
+The $m=0$ case is $1=\delta_0$. Hence (3) holds with $C_g=4^gK_g$.
+\end{proof}
+Log-concavity alone would not exclude internal zeros: $(1,0,0,1)$
+is a counterexample. The ample approximation above is essential.
+
+\begin{lemma}[Bounded-window trace detection]\label{window}
+If a complex matrix $T$ has spectral radius $\rho>0$ and $d$ distinct
+nonzero eigenvalues, then for some $c_T>0$,
+\[
+ \max_{0\le r<d}|\Tr(T^{n+r})|\ge c_T\rho^n\qquad(n\ge1).
+ \tag{5}
+\]
+\end{lemma}
+\begin{proof}
+For distinct nonzero eigenvalues $\beta_j$ of multiplicities $a_j>0$,
+$\Tr(T^{n+r})=\sum_j\beta_j^r a_j\beta_j^n$.
+Invert the fixed matrix $(\beta_j^r)_{0\le r<d,\,1\le j\le d}$.
+At least one $|a_j\beta_j^n|$ is at least $\rho^n$.
+\end{proof}
+Jordan blocks do not affect these trace identities. Equation (5) is an
+elementary finite interpolation statement; it replaces the use of a
+radius-of-convergence argument and prevents cancellation from being
+mistaken for pointwise degree decay.
+
+\section{Actual limits, with no spectral-gap analysis}
+\begin{theorem}\label{comparison}
+For every $f\in\End(A)$, define
+$\chi_i=\rho(f^*|H^i(A,\Q_\ell))$ using $\iota$, and
+$\lambda_k=\rho(f^*|\N^k(A)_\R)$. For $0\le k\le g$,
+\[
+ \lim_{n\to\infty}\delta_k(f^n)^{1/n}=\lambda_k=\chi_{2k},\qquad
+ \chi_{2k+1}^2=\lambda_k\lambda_{k+1}.
+ \tag{6}
+\]
+The odd formula is for $k<g$.
+If $\chi_{2k}>0$, there is $c_{f,H,k}>0$ such that
+$\delta_k(f^n)\ge c_{f,H,k}\chi_{2k}^n$ for every $n\ge1$.
+\end{theorem}
+\begin{proof}
+Fix $k$ and suppose $\rho=\chi_{2k}>0$.
+Apply (5) to $T=\wedge^{2k}f$. For its finitely many shifts $r$, choose
+$B_r>0$ with $(f^r)^*H\preceq B_rH$; this is possible because $H$
+is ample. Pullback and nef monotonicity give
+\[
+ \delta_k(f^{n+r})\le B_r^k\delta_k(f^n).
+\]
+Together with (3) and (5), this yields
+\[
+ c_T\rho^n\le\max_{r<d}|\Tr(T^{n+r})|
+ \le C_g\max_{r<d}B_r^k\,\delta_k(f^n).
+ \tag{7}
+\]
+On the other hand, $\delta_k(f^n)$ is a fixed matrix coefficient on
+$H^{2k}$, so its $n$th-root limsup is at most $\rho$. This proves
+the actual limit and the lower bound. If $\rho=0$, $T$ is nilpotent
+and that matrix coefficient is eventually zero, giving the same limit.
+
+The matrix coefficient also lives on $\N^k$, so $\chi_{2k}\le\lambda_k$.
+The reverse inequality follows because $\N^k_\Q\otimes\Q_\ell$ is an
+equivariant quotient of the span of algebraic cohomology classes.
+To see well-definedness over $\Q_\ell$, pair a cohomological relation
+with representatives of a dual basis of the finite-dimensional perfect
+numerical intersection pairing; all its numerical coordinates vanish.
+This uses no assertion that numerical classes inject into cohomology.
+
+If $\chi_{2k+1}=0$, the desired upper bound is immediate; otherwise
+use (3) and the same bounded-window argument for $\wedge^{2k+1}f$.
+It gives $\chi_{2k+1}^2\le\lambda_k\lambda_{k+1}$ after taking $n$th
+roots and using the already proved limits. If
+$r_1\ge\cdots\ge r_{2g}$ are the characteristic-root moduli, the
+opposite inequality
+$\chi_{2k+1}^2\ge\chi_{2k}\chi_{2k+2}$ follows directly by ordering
+products. Thus equality holds. It also forces
+$r_{2j-1}=r_{2j}$, including the zero tail.
+\end{proof}
+The even comparison and odd formula are Hu's Theorem~1.9 and
+Remark~5.5 \cite{Hu}. No gap/block decomposition or isogeny reduction
+is needed here. The proof still uses degree nonnegativity through (2);
+only a separate root-pairing lemma has been removed.
+
+\paragraph{An even shorter first-degree argument.}
+For $k=1$, Khovanskii--Teissier and Lemma~\ref{coefficients} can be
+omitted. Write the nef class
+$D_u(t)=t^2H-tB_u+u^*H$ supplied by the cube. Its intersection with
+$H^{g-1}$ is a nonnegative quadratic, so its discriminant is nonpositive;
+the $t^{2g-1}$
+coefficient of $D_u(t)^g/H^g=P_u(t)$ identifies the trace. Hence
+\[
+ |\Tr(u\mid V)|^2\le4g^2\delta_1(u).
+\]
+Apply Lemma~\ref{window} directly to $f|V$ and dominate the finitely
+many future degrees as in (7). If $\chi_1>0$, this gives
+$\delta_1(f^n)\ge c\chi_1^{2n}$; the standard matrix-coefficient and
+numerical-quotient bounds then close the chain
+\[
+ \chi_1^2\le\liminf\delta_1(f^n)^{1/n}
+ \le\limsup\delta_1(f^n)^{1/n}
+ \le\lambda_1\le\chi_2\le\chi_1^2.
+\]
+If $\chi_1=0$, the same conclusion follows from nilpotence. This
+upgrades the quadratic curve argument to the unpolarized first-degree
+comparison, with an actual limit, using only the usual cycle-class
+comparison in addition to its geometric inputs.
+
+\paragraph{Scope and attribution.}
+The companion derives sharp norm constants and Jordan information using
+Rosati and Riemann--Roch. Uniform norm comparison is already
+\cite[Corollary 5.6]{Hu}; broader degree-growth and strict-gap asymptotic
+theorems appear in \cite{HJ,HuRecent}. Here finite interpolation gives a
+short alternative proof of known comparisons, with no priority claim.
+
+\begin{thebibliography}{9}\small
+\bibitem{Hu} F. Hu, \emph{Eigenvalues and dynamical degrees of self-maps
+on abelian varieties}, J. Algebraic Geom. \textbf{33} (2024), 265--293.
+\url{https://arxiv.org/abs/1909.12296}.
+\bibitem{MilneRH} J. S. Milne, \emph{The Riemann Hypothesis over Finite
+Fields: From Weil to the Present Day}, 2015.
+\url{https://www.jmilne.org/math/xnotes/pRH.pdf}.
+\bibitem{HJ} F. Hu and C. Jiang, \emph{Uniform Tur\'an estimates and sharp
+bounds for degree and mixed orbit growth}, arXiv:2609.29877v1,
+24 September 2026. \url{https://arxiv.org/abs/2609.29877}.
+\bibitem{HuRecent} F. Hu, \emph{Degree growth of rational and meromorphic
+self-maps}, arXiv:2610.18094v1, 13 October 2026.
+\url{https://arxiv.org/abs/2610.18094}.
+\end{thebibliography}
+\end{document}

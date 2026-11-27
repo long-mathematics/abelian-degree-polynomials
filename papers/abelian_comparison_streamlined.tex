@@ -1,0 +1,297 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Q}{\mathbb Q}\newcommand{\R}{\mathbb R}\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathsf N}
+\title{\vspace{-1.5em}Finite-time spectral comparison\\on abelian varieties}
+\author{\small Research note prepared for Christopher D. Long}
+\date{\small 27 November 2026}
+\begin{document}
+\maketitle\vspace{-1.2em}
+\begin{abstract}
+The Rosati trace form and Riemann--Roch give a short, classification-free
+proof of Hu's spectral comparison. A compatible Hermitian form is obtained
+by taking the orthogonal complement of a kernel in a free module. Hu's
+mixed-degree identity then gives a sharp finite-time norm sandwich,
+including non-isogenies. We spell out its Jordan-growth and nilpotency
+consequences, identify the leading constant at a strict gap, and obtain
+sharp submultiplicativity with constant $\binom gk$. These are expository
+consequences of classical positivity and Hu's results; no priority is claimed.
+\end{abstract}
+
+\section{The finite-time identity}
+Let $A/K$ be an abelian variety of dimension $g>0$ over an algebraically
+closed field. Fix a symmetric ample line bundle with numerical class $H$,
+$\ell\ne\operatorname{char}K$, and an abstract embedding
+$\iota:\overline\Q_\ell\hookrightarrow\C$; no continuity is intended.
+Put $V=V_\ell A\otimes_{\Q_\ell,\iota}\C$. For $u\in\End(A)$ write
+$U$ for its action on $V$, and put
+\[
+ B_k=\binom gk,\qquad
+ \delta_k(u)=\frac{(u^*H)^kH^{g-k}}{H^g},\qquad
+ M_u(s)=\sum_{k=0}^g B_k\delta_k(u)s^{g-k}.
+ \tag{1}
+\]
+Write $\chi_i(u)=\rho(\wedge^i U)$ and
+$\lambda_k(u)=\rho(u^*\mid\N^k(A)_\R)$, where $\N^k$ denotes numerical
+cycle classes. Cohomology is geometric; $H^i(A)\simeq\wedge^iH^1(A)$,
+and pullback on $H^1$ is the transpose of the Tate action. Thus its
+spectral radii and Jordan sizes are those used here.
+
+We use finite dimensionality of $\End^0(A)$, the theorem of the cube,
+the degree--determinant identity, and classical polarization theory:
+\[
+ u^\dagger=\varphi_H^{-1}u^\vee\varphi_H,\qquad
+ \varphi_{sH+u^*H}=\varphi_H(s+u^\dagger u),\qquad
+ \deg\varphi_L=(L^g/g!)^2.
+ \tag{2}
+\]
+Degrees of non-isogenies are zero.
+Numerical divisor classes identify with $\operatorname{NS}(A)_\Q$;
+their map to $\Hom^0(A,A^\vee)$ is injective. Quasi-endomorphism
+identities are read after clearing denominators. These standard inputs
+are independent of finite-field RH \cite{Mumford}.
+
+\begin{lemma}[A compatible Hermitian form]\label{hermitian}
+There is one positive definite Hermitian form on $V$ for which
+$U^*$ is the action of $u^\dagger$ for every $u\in\End^0(A)$.
+\end{lemma}
+\begin{proof}
+For integral $s>0$, (2) gives, and polynomial continuation proves,
+\[
+ M_u(s)^2=\det(s+u^\dagger u\mid V_\ell A).
+ \tag{3}
+\]
+Comparing coefficients gives
+$\Tr(u^\dagger u)=2g Q_H(u)$, where
+$Q_H(u)=(u^*H\cdot H^{g-1})/H^g$. The cube makes $Q_H$ a rational
+quadratic form. If $u\ne0$, its image has positive dimension, and a
+suitable ample hyperplane section pulls back to a nonzero effective
+divisor, so $Q_H(u)>0$. This extends to rational $u$ by homogeneity.
+Density makes the real extension positive semidefinite; a singular
+rational Gram matrix would have a rational kernel. It is therefore
+positive definite.
+
+On $E=\End^0(A)\otimes_\Q\C$, extend $\dagger$ conjugate-linearly to
+$*$ and set $\langle a,b\rangle=\Tr(a^*b)$. The trace is the Tate
+trace, not the regular-algebra trace. It is cyclic and
+$\Tr(a^\dagger)=\Tr(a)$, by the Weil pairing, so this form is Hermitian
+and positive definite. Moreover
+$\langle ax,y\rangle=\langle x,a^*y\rangle$.
+Choose a finite spanning set of $V$ and the resulting surjective
+$E$-module map $E^{\oplus m}\twoheadrightarrow V$. Its kernel and the
+kernel's orthogonal complement are both $E$-stable: the latter follows
+from the adjoint identity. Transport the form from that complement to $V$.
+\end{proof}
+This is the elementary positive-involution principle; compare
+\cite[Proposition 8.10]{Milne}. It needs no classification or prior
+semisimplicity theorem for $E$.
+
+\begin{theorem}[Hu's identity and its sharp norm consequence]\label{finite}
+For the form in Lemma~\ref{hermitian}, the squared singular values of $U$
+occur in pairs $t_1,t_1,\ldots,t_g,t_g$, with $t_1\ge\cdots\ge t_g\ge0$.
+For every endomorphism, including non-isogenies, and $0\le k\le g$,
+\[
+ B_k\delta_k(u)=e_k(t_1,\ldots,t_g),\qquad
+ \delta_k(u)\le\|\wedge^{2k}U\|\le B_k\delta_k(u),\qquad
+ \chi_{2k}(u)\le B_k\delta_k(u).
+ \tag{4}
+\]
+The factor $B_k$ is best possible.
+\end{theorem}
+\begin{proof}
+By (3), $M_u(s)^2=\det(s+U^*U)$. Since $U^*U\ge0$, its eigenvalues
+have even multiplicity and $M_u(s)=\prod_j(s+t_j)$ (the monic square
+root). Hence the coefficient identity, which is Hu's Corollary~1.7
+and equation (5.5) \cite{Hu}. Now
+$\|\wedge^{2k}U\|=t_1\cdots t_k$, the largest of the $B_k$ nonnegative
+terms in $e_k(t)$; also $\rho(T)\le\|T\|$. On product-polarized $E_0^g$,
+the map $\operatorname{diag}(nI_k,0)$ has
+$\chi_{2k}=n^{2k}=B_k\delta_k$, proving sharpness. Scalar maps give
+equality in the other side of the norm sandwich.
+\end{proof}
+
+\section{Dynamics, Jordan blocks, and zero radius}
+\begin{corollary}\label{growth}
+For every $f\in\End(A)$ and $0\le k\le g$,
+\[
+ \lim_{n\to\infty}\delta_k(f^n)^{1/n}=\lambda_k(f)=\chi_{2k}(f),
+ \qquad \chi_{2k+1}(f)^2=\lambda_k(f)\lambda_{k+1}(f).
+ \tag{5}
+\]
+The odd formula is for $k<g$. If $\lambda_k>0$ and $m_k$ is the largest
+Jordan-block size on $H^{2k}$ at modulus $\lambda_k$, then
+\[
+ \delta_k(f^n)\asymp n^{m_k-1}\lambda_k^n.
+ \tag{6}
+\]
+The same largest peripheral block size occurs on $\N^k(A)_\R$.
+If $\lambda_k=0$, the two actions have the same nilpotency index; more
+precisely, for every $n\ge1$,
+\[
+ \delta_k(f^n)=0
+ \ \Longleftrightarrow\ (f^n)^*|_{H^{2k}}=0
+ \ \Longleftrightarrow\ (f^n)^*|_{\N^k}=0.
+ \tag{7}
+\]
+\end{corollary}
+\begin{proof}
+Apply (4) to $f^n$ and take $n$th roots using Gelfand's formula.
+The number $\delta_k(f^n)$ is a fixed matrix coefficient on $\N^k$,
+so the limit is at most $\lambda_k$.
+Conversely, numerical classes are an equivariant quotient of the
+$\Q_\ell$-span of algebraic classes in $H^{2k}$, so $\lambda_k\le\chi_{2k}$.
+For clarity, this quotient is well defined even with $\Q_\ell$
+coefficients: pair a cohomological relation with cycles representing
+a dual basis of $\N^{g-k}_\Q$; the perfect numerical intersection
+pairing then makes the corresponding numerical relation zero.
+
+Paired singular values give the exact identity
+$\|\wedge^{2k+1}U^n\|^2=
+\|\wedge^{2k}U^n\|\,\|\wedge^{2k+2}U^n\|$.
+Gelfand proves the odd formula. Jordan normal form and (4) give (6).
+The numerical subquotient has peripheral block size at most $m_k$;
+the numerical matrix coefficient and the lower bound in (6) give the
+reverse inequality. Finally (4) equates the first two conditions in
+(7), the quotient gives the second-to-third implication, and the
+numerical matrix coefficient gives the third-to-first implication.
+\end{proof}
+These Jordan and nilpotency statements also follow from Hu's uniform
+norm comparison \cite[Corollary 5.6]{Hu}; they are not new comparison
+theorems. They concern maximal peripheral sizes, not equality of all
+Jordan blocks. The general degree-growth results of \cite{HJ} have
+much broader scope.
+
+\begin{remark}[Why zero radius must be separated]
+For $f(x,y)=(y,0)$ on $E_0^2$ with product polarization,
+$\chi_2(f)=0$ but $\delta_1(f)=1/2$. Thus an all-$n$ upper bound
+$Cn^{m-1}\chi_2(f)^n$ is false. Its correct replacement is (7) and
+eventual vanishing. Equation (6) asserts two-sided comparability,
+not a limiting leading coefficient in every codimension.
+\end{remark}
+
+\section{Two explicit refinements}
+\begin{corollary}[A strict gap]\label{gap}
+Order the root moduli $r_1\ge\cdots\ge r_{2g}$. Suppose
+$r_{2k}>r_{2k+1}$, with $1\le k<g$. Set $\lambda=\chi_{2k}>0$ and let
+$\Pi_k$ be the spectral projection of $T=\wedge^{2k}U$ at its unique
+dominant eigenvalue. Then this eigenvalue is $\lambda$ and
+\[
+ \delta_k(f^n)=\frac{\|\Pi_k\|}{B_k}\lambda^n+O(\eta^n),
+ \qquad \frac{\|\Pi_k\|}{B_k}\ge\frac1{B_k},
+ \tag{8}
+\]
+for every $\lambda r_{2k+1}/r_{2k}<\eta<\lambda$.
+\end{corollary}
+\begin{proof}
+There is exactly one product of $2k$ characteristic roots of maximal
+modulus, so it is algebraically simple. The reality and positivity of
+the mixed-degree sequence, together with (4), force this unique
+dominant eigenvalue to be $\lambda>0$ and its coefficient to be positive.
+Thus $\lambda^{-n}T^n\to\Pi_k$, with the stated exponential remainder
+for every fixed matrix coefficient (Jordan factors are absorbed by $\eta$).
+If $t_j(n)$ are the paired squared singular values of $U^n$, exterior
+Gelfand gives $t_j(n)^{1/n}\to r_{2j}^2$ on the nonzero spectrum.
+Consequently $t_{k+1}(n)/t_k(n)\to0$ exponentially, or is eventually zero,
+and $e_k(t(n))/(t_1(n)\cdots t_k(n))\to1$.
+Equations (4) and $\lambda^{-n}\|T^n\|\to\|\Pi_k\|$ identify the
+coefficient. A nonzero projection has norm at least one.
+\end{proof}
+The endpoint cases $k=0,g$ are exact scalar formulas. Product-polarized
+diagonal maps attain $1/B_k$. Exact positive gap asymptotics are known
+far more generally, with this remainder threshold, by
+\cite[Theorem 1.5]{HuRecent}; (8) identifies the constant in our chosen norm.
+
+\begin{corollary}[Sharp composition constant]\label{composition}
+For any $u,v\in\End(A)$, without a commutation assumption,
+\[
+ \delta_k(uv)\le B_k\,\delta_k(u)\delta_k(v).
+ \tag{9}
+\]
+The constant $B_k$ is sharp.
+\end{corollary}
+\begin{proof}
+First suppose $u,v$ are isogenies. Exterior-norm submultiplicativity
+gives $t(uv)\prec_{\log}(t_j(u)t_j(v))_j$: all leading products are
+bounded by the corresponding leading products, with equality for the
+total product. The function $x\mapsto e_k(e^{x_1},\ldots,e^{x_g})$ is
+symmetric and convex, so ordinary majorization gives
+\[
+ e_k(t(uv))\le e_k((t_j(u)t_j(v))_j)
+ \le e_k(t(u))e_k(t(v)).
+\]
+Divide by $B_k$ and use (4). For arbitrary maps replace $u,v$ by
+$u+\varepsilon1,v+\varepsilon1$, with rational $\varepsilon\to0$
+avoiding their finitely many determinant roots, and pass to the limit;
+all identities extend homogeneously to quasi-endomorphisms.
+Taking both maps to be scalar multiples of the same rank-$k$ projection
+on $E_0^g$ proves sharpness.
+\end{proof}
+
+\section{Polarization, curves, and two maps}
+If $f^*H=dH$, $d>0$, (2) and injectivity on divisor classes give
+$f^\dagger f=d$. Hence $U/\sqrt d$ is unitary. It follows immediately
+that $f^*$ is semisimple on $H^i$ with root moduli $d^{i/2}$.
+For the $q$-power Frobenius of the Jacobian of a smooth projective
+geometrically connected curve over $\mathbb F_q$, an
+$\mathbb F_q$-defined symmetric ample bundle has $f^*H=qH$.
+The Jacobian identification and the curve trace formula give RH for
+curves and global function fields, and the bound $2gq^{n/2}$.
+Genus zero is immediate. These are classical applications, not Weil II
+for arbitrary sheaves.
+
+More generally, if $aH\preceq f^*H\preceq bH$ in nef order, with
+$0\le a\le b$, then
+$aQ_H(x)\le Q_H(fx)\le bQ_H(x)$ on the real endomorphism algebra.
+The free-module construction in Lemma~\ref{hermitian} transfers these
+bounds to $V$, so every singular value lies in $[\sqrt a,\sqrt b]$.
+If $u^*H=aH$ and $v^*H=bH$, the triangle and reverse triangle
+inequalities likewise put every singular value of $U-V$ in
+$[|\sqrt a-\sqrt b|,\sqrt a+\sqrt b]$. Therefore
+\[
+ |\sqrt a-\sqrt b|^{2k}\le\delta_k(u-v)
+ \le(\sqrt a+\sqrt b)^{2k} \qquad(1\le k\le g).
+ \tag{10}
+\]
+No commutation is needed, and $a=0$ or $b=0$ is allowed.
+
+\paragraph{Provenance and prerequisite choice.}
+Hu's mixed-degree identity, comparison theorem, and uniform norm
+comparison are the substantive prior results \cite{Hu}. This note
+reorganizes their abelian argument using a standard positive-module
+construction and exterior-power norms. The companion
+\emph{Spectral comparison by polynomial interpolation} gives a different
+proof from the cube, the degree polynomial, nef intersections and
+Khovanskii--Teissier, without Rosati, Riemann--Roch or classification.
+Neither presentation claims theorem or method priority.
+
+\begin{thebibliography}{9}\small
+\bibitem{Hu} F. Hu, \emph{Eigenvalues and dynamical degrees of self-maps
+on abelian varieties}, J. Algebraic Geom. \textbf{33} (2024), 265--293;
+Corollaries 1.7, 5.6 and equation (5.5).
+\url{https://arxiv.org/abs/1909.12296}.
+\bibitem{Mumford} D. Mumford, \emph{Abelian Varieties}, 2nd ed., Oxford
+University Press, 1974, \S\S13, 16, 20, 21.
+\bibitem{Milne} J. S. Milne, \emph{Introduction to Shimura Varieties},
+Clay Math. Proc. \textbf{4} (2005), 265--378, Proposition 8.10.
+\url{https://www.jmilne.org/math/xnotes/svi2005.pdf}.
+\bibitem{HJ} F. Hu and C. Jiang, \emph{Uniform Tur\'an estimates and
+sharp bounds for degree and mixed orbit growth}, arXiv:2609.29877v1,
+24 September 2026. \url{https://arxiv.org/abs/2609.29877}.
+\bibitem{HuRecent} F. Hu, \emph{Degree growth of rational and meromorphic
+self-maps}, arXiv:2610.18094v1, 13 October 2026, Theorem 1.5.
+\url{https://arxiv.org/abs/2610.18094}.
+\end{thebibliography}
+\end{document}
