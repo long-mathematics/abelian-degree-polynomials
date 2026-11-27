@@ -1,0 +1,75 @@
+{
+  "arithmetic": "exact integers, rationals, and symbolic polynomials",
+  "base_matrices_by_dimension": {
+    "1": 5,
+    "2": 13,
+    "3": 14,
+    "4": 16
+  },
+  "checks": {
+    "characteristic_degree": 96,
+    "degree_determinant_identity": 672,
+    "degree_gram_identity": 672,
+    "degree_nonnegativity": 672,
+    "endpoint_delta_top": 96,
+    "endpoint_delta_zero": 96,
+    "endpoint_iterate_degree": 96,
+    "first_mixed_degree_normalization": 96,
+    "jordan_exact_growth": 8,
+    "khovanskii_teissier": 178,
+    "mixed_degree_inequality": 672,
+    "mixed_polynomial_normalization": 96,
+    "nef_bound_principal_minors": 56,
+    "nef_bound_symmetry": 8,
+    "parallelogram_gram_identity": 672,
+    "similitude_noncommutation": 4,
+    "similitude_u_normalization": 4,
+    "similitude_v_normalization": 4,
+    "symbolic_trace_sum_of_squares": 1,
+    "trace_coefficient": 96,
+    "trace_inequality": 96,
+    "two_map_degree_lower": 4,
+    "two_map_degree_upper": 4
+  },
+  "dimensions": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "distinct_base_matrices": 48,
+  "iterate_exponents": [
+    1,
+    2
+  ],
+  "jordan_exponents": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "matrix_iterate_cases": 96,
+  "noncommuting_similitude_cases": 4,
+  "rational_shifts": [
+    "-5/2",
+    "-1",
+    "-1/3",
+    "0",
+    "2/3",
+    "2",
+    "7/2"
+  ],
+  "scope_limitations": [
+    "Finite sanity checks on integer-matrix endomorphisms of product-polarized E^g.",
+    "Checks normalizations and examples; does not verify the general geometric proofs.",
+    "No floating-point spectral comparisons, novelty claims, or formal proof certification."
+  ],
+  "shifted_cases": 672,
+  "status": "passed",
+  "sympy_version": "1.14.0",
+  "total_checks": 4399
+}

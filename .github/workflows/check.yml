@@ -1,0 +1,37 @@
+name: Manuscripts and exact checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install exact-arithmetic dependency
+        run: python -m pip install -r requirements.txt
+      - name: Check matrix realizations
+        run: python scripts/check_identities.py
+      - name: Install local TeX distribution
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-recommended lmodern
+      - name: Compile both manuscripts
+        run: python scripts/build_pdfs.py
+      - name: Preserve rebuilt PDFs and source hashes
+        uses: actions/upload-artifact@v7
+        with:
+          name: audited-proof-notes
+          path: |
+            papers/*.pdf
+            audit/build_manifest.json
+

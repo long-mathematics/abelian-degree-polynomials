@@ -1,0 +1,20 @@
+{
+  "engine": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+  "source_date_epoch": "1795737600",
+  "papers": [
+    {
+      "source": "papers/short_curve_rh_proof.tex",
+      "source_sha256": "d3a905093ad9db42177fc621c6d70bc44895b8362de7a5cbbabbcc591f095986",
+      "pdf": "papers/short_curve_rh_proof.pdf",
+      "pdf_sha256": "a8821505ff1d09df7b0c08060feb32339cc20ec91a85e561d89dd85b7c10c1c0",
+      "passes": 2
+    },
+    {
+      "source": "papers/abelian_all_degrees_proof.tex",
+      "source_sha256": "9a2270bdb3ddfa973011934c3f12bf18305e4fa36c161892877b283be2041cf2",
+      "pdf": "papers/abelian_all_degrees_proof.pdf",
+      "pdf_sha256": "51fb30f0348a9d79880eb8d933d07092445db0e0d7bd6510c485110d95d1f817",
+      "passes": 2
+    }
+  ]
+}
