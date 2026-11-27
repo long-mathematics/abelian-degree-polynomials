@@ -6,6 +6,7 @@ all: check pdf
 
 check:
 	$(PYTHON) scripts/check_identities.py
+	$(PYTHON) scripts/check_streamlined.py
 
 pdf:
 	$(PYTHON) scripts/build_pdfs.py

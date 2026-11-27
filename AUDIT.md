@@ -4,6 +4,12 @@
 **Scope:** the two sources in `papers/`, their compiled PDFs, attribution,
 and reproducible exact checks.
 
+**Streamlined revision:** the later four-page norm proof and three-page
+elementary companion have their own [revision audit](audit/streamlined/REVISION.md),
+source-hash reviews, targeted literature check, regression checks, and PDF
+review. The original audit below is retained as the record of the two earlier
+notes. The recommended presentations are now the streamlined pair.
+
 ## Verdict
 
 No fatal mathematical gap, false stated conclusion, or circular use of

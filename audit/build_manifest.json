@@ -15,6 +15,20 @@
       "pdf": "papers/abelian_all_degrees_proof.pdf",
       "pdf_sha256": "51fb30f0348a9d79880eb8d933d07092445db0e0d7bd6510c485110d95d1f817",
       "passes": 2
+    },
+    {
+      "source": "papers/abelian_comparison_streamlined.tex",
+      "source_sha256": "5885dd36856eb576450cad2abf5c7f070e1a194c0feef4d7f4b72b16f6bfe008",
+      "pdf": "papers/abelian_comparison_streamlined.pdf",
+      "pdf_sha256": "aa80e30ac85e0bf5a965127bd4cf96580bf9ae5b00a5c1ad1417a3e5a23e8159",
+      "passes": 2
+    },
+    {
+      "source": "papers/abelian_comparison_elementary.tex",
+      "source_sha256": "3e7207f26810e88406a92f8fcd27fbd18616e900a570d13dbe83c1be95c94b7e",
+      "pdf": "papers/abelian_comparison_elementary.pdf",
+      "pdf_sha256": "b01eb0621dbf4ff706b945b762aef4216e4b39e14119ff4d1883c25055e4eb6d",
+      "passes": 2
     }
   ]
 }

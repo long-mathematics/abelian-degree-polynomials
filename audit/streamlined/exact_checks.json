@@ -1,0 +1,894 @@
+{
+  "arithmetic": "exact integer/rational matrices and symbolic polynomials; no numerical SVD",
+  "checks": {
+    "composition_bound": 41,
+    "composition_commutation_metadata": 12,
+    "nilpotent_exterior_index": 1,
+    "nilpotent_first_mixed_degree": 1,
+    "nilpotent_second_mixed_degree": 1,
+    "oscillation_distinct_subsequence_values": 1,
+    "oscillation_exterior_spectral_radius_one": 1,
+    "oscillation_period_two": 1,
+    "polynomial_degree_equals_jordan_exponent": 7,
+    "sharp_composition_equality": 3,
+    "sharp_projection_normalization": 3,
+    "sharp_projection_rank_and_idempotence": 3,
+    "strict_gap_degree_formula": 2,
+    "strict_gap_exact_leading_limit": 2,
+    "strict_gap_exact_power_samples": 14,
+    "strict_gap_projection_gram_spectrum": 2,
+    "strict_gap_projection_norm_constant": 2,
+    "strict_gap_spectral_projection": 2,
+    "unipotent_exterior_nilpotency_index": 7,
+    "unipotent_mixed_degree_polynomial": 7,
+    "unipotent_power_initial_value": 2,
+    "unipotent_power_symbolic_recurrence": 2
+  },
+  "command": "python scripts/check_streamlined.py --report audit/streamlined/exact_checks.json --markdown audit/streamlined/exact_checks.md",
+  "composition_cases": [
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "9/2",
+          "delta_product": "7/2",
+          "k": 1,
+          "nonnegative_defect": "1"
+        },
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": false,
+      "left": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "name": "opposite_shears_2",
+      "noncommuting": true,
+      "right": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "6",
+          "delta_product": "3",
+          "k": 1,
+          "nonnegative_defect": "3"
+        },
+        {
+          "binomial_delta_left_delta_right": "4",
+          "delta_product": "4",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": false,
+      "left": [
+        [
+          "2",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "name": "nonnormal_and_rotation_2",
+      "noncommuting": true,
+      "right": [
+        [
+          "0",
+          "-1"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "1/2",
+          "delta_product": "1/2",
+          "k": 1,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "name": "nilpotent_and_transpose_2",
+      "noncommuting": true,
+      "right": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "25",
+          "delta_product": "49/2",
+          "k": 1,
+          "nonnegative_defect": "1/2"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "name": "skew_rank_one_2",
+      "noncommuting": true,
+      "right": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "3"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "15/2",
+          "delta_product": "5",
+          "k": 1,
+          "nonnegative_defect": "5/2"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ],
+      "name": "involution_and_rank_one_2",
+      "noncommuting": true,
+      "right": [
+        [
+          "2",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "1/2",
+          "delta_product": "0",
+          "k": 1,
+          "nonnegative_defect": "1/2"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "name": "complementary_projections_2",
+      "noncommuting": false,
+      "right": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "55/3",
+          "delta_product": "29/3",
+          "k": 1,
+          "nonnegative_defect": "26/3"
+        },
+        {
+          "binomial_delta_left_delta_right": "54",
+          "delta_product": "42",
+          "k": 2,
+          "nonnegative_defect": "12"
+        },
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 3,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 3,
+      "has_singular_factor": false,
+      "left": [
+        [
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "name": "opposite_shears_3",
+      "noncommuting": true,
+      "right": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "2",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "2",
+          "1"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "4/3",
+          "delta_product": "2/3",
+          "k": 1,
+          "nonnegative_defect": "2/3"
+        },
+        {
+          "binomial_delta_left_delta_right": "1/3",
+          "delta_product": "1/3",
+          "k": 2,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 3,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 3,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "name": "nilpotent_and_transpose_3",
+      "noncommuting": true,
+      "right": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "7",
+          "delta_product": "7/3",
+          "k": 1,
+          "nonnegative_defect": "14/3"
+        },
+        {
+          "binomial_delta_left_delta_right": "14/3",
+          "delta_product": "2/3",
+          "k": 2,
+          "nonnegative_defect": "4"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 3,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 3,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "name": "singular_and_dense_3",
+      "noncommuting": true,
+      "right": [
+        [
+          "2",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "1/2",
+          "delta_product": "1/2",
+          "k": 1,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 2,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 2,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "name": "sharp_projection_g2_k1",
+      "noncommuting": false,
+      "right": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "1/3",
+          "delta_product": "1/3",
+          "k": 1,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 2,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 3,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 3,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "name": "sharp_projection_g3_k1",
+      "noncommuting": false,
+      "right": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "codimensions": [
+        {
+          "binomial_delta_left_delta_right": "1",
+          "delta_product": "1",
+          "k": 0,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "4/3",
+          "delta_product": "2/3",
+          "k": 1,
+          "nonnegative_defect": "2/3"
+        },
+        {
+          "binomial_delta_left_delta_right": "1/3",
+          "delta_product": "1/3",
+          "k": 2,
+          "nonnegative_defect": "0"
+        },
+        {
+          "binomial_delta_left_delta_right": "0",
+          "delta_product": "0",
+          "k": 3,
+          "nonnegative_defect": "0"
+        }
+      ],
+      "g": 3,
+      "has_singular_factor": true,
+      "left": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "name": "sharp_projection_g3_k2",
+      "noncommuting": false,
+      "right": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    }
+  ],
+  "composition_pair_count": 12,
+  "composition_pairs_with_singular_factor": 9,
+  "nilpotent_counterexample": {
+    "consequence": "A bound C*n**a*rho**n for every n>=1 fails when rho=0.",
+    "delta_1_n1": "1/2",
+    "delta_1_n_ge_2": "0",
+    "exterior_nilpotency_index": 2,
+    "exterior_spectral_radius": "0",
+    "matrix": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "noncommuting_composition_pair_count": 8,
+  "outside_gap_nonconvergence": {
+    "consequence": "delta_1(M**n)/rho**n has no limit outside a strict gap.",
+    "delta_1_even": "1",
+    "delta_1_odd": "3/2",
+    "exterior_characteristic_polynomial": "(x - 1)**2 * (x + 1)**4",
+    "exterior_spectral_radius": "1",
+    "matrix": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "0",
+        "-1"
+      ]
+    ],
+    "matrix_squared": "identity"
+  },
+  "scope_limitations": [
+    "Concrete integer-matrix endomorphisms of product-polarized E^g only.",
+    "The unipotent and strict-gap closed formulas are checked symbolically; other composition cases are finite examples.",
+    "These checks detect constants, conventions, and edge-case errors; they do not prove the general geometric claims.",
+    "No claim of novelty, formal proof certification, or a full comparison of numerical and cohomological Jordan forms."
+  ],
+  "sharp_composition_cases": [
+    {
+      "delta": "1/2",
+      "g": 2,
+      "k": 1,
+      "required_composition_constant": "2"
+    },
+    {
+      "delta": "1/3",
+      "g": 3,
+      "k": 1,
+      "required_composition_constant": "3"
+    },
+    {
+      "delta": "1/3",
+      "g": 3,
+      "k": 2,
+      "required_composition_constant": "3"
+    }
+  ],
+  "status": "passed",
+  "strict_gap_cases": [
+    {
+      "delta_polynomial_in_q": "q**2 - q + 1",
+      "delta_polynomial_in_q_latex": "q^{2} - q + 1",
+      "exterior_projection_gram_characteristic_polynomial": "x**5*(x - 4)",
+      "exterior_projection_norm": "2",
+      "limit_delta_over_4_to_n": "1",
+      "matrix": [
+        [
+          "2",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "name": "nonnormal",
+      "projection": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "projection_norm_divided_by_2": "1",
+      "q_definition": "q=2**n",
+      "sample_exponents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "delta_polynomial_in_q": "q**2/2 + 1/2",
+      "delta_polynomial_in_q_latex": "\\frac{q^{2}}{2} + \\frac{1}{2}",
+      "exterior_projection_gram_characteristic_polynomial": "x**5*(x - 1)",
+      "exterior_projection_norm": "1",
+      "limit_delta_over_4_to_n": "1/2",
+      "matrix": [
+        [
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "name": "normal",
+      "projection": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "projection_norm_divided_by_2": "1/2",
+      "q_definition": "q=2**n",
+      "sample_exponents": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ],
+  "sympy_version": "1.14.0",
+  "total_checks": 117,
+  "unipotent_jordan_cases": [
+    {
+      "delta_polynomial": "1",
+      "delta_polynomial_latex": "1",
+      "exterior_dimension": 1,
+      "g": 2,
+      "k": 0,
+      "largest_exterior_jordan_block": 1,
+      "polynomial_degree": 0
+    },
+    {
+      "delta_polynomial": "n**2/2 + 1",
+      "delta_polynomial_latex": "\\frac{n^{2}}{2} + 1",
+      "exterior_dimension": 6,
+      "g": 2,
+      "k": 1,
+      "largest_exterior_jordan_block": 3,
+      "polynomial_degree": 2
+    },
+    {
+      "delta_polynomial": "1",
+      "delta_polynomial_latex": "1",
+      "exterior_dimension": 1,
+      "g": 2,
+      "k": 2,
+      "largest_exterior_jordan_block": 1,
+      "polynomial_degree": 0
+    },
+    {
+      "delta_polynomial": "1",
+      "delta_polynomial_latex": "1",
+      "exterior_dimension": 1,
+      "g": 3,
+      "k": 0,
+      "largest_exterior_jordan_block": 1,
+      "polynomial_degree": 0
+    },
+    {
+      "delta_polynomial": "n**4/12 - n**3/6 + 3*n**2/4 + 1",
+      "delta_polynomial_latex": "\\frac{n^{4}}{12} - \\frac{n^{3}}{6} + \\frac{3 n^{2}}{4} + 1",
+      "exterior_dimension": 15,
+      "g": 3,
+      "k": 1,
+      "largest_exterior_jordan_block": 5,
+      "polynomial_degree": 4
+    },
+    {
+      "delta_polynomial": "n**4/12 + n**3/6 + 3*n**2/4 + 1",
+      "delta_polynomial_latex": "\\frac{n^{4}}{12} + \\frac{n^{3}}{6} + \\frac{3 n^{2}}{4} + 1",
+      "exterior_dimension": 15,
+      "g": 3,
+      "k": 2,
+      "largest_exterior_jordan_block": 5,
+      "polynomial_degree": 4
+    },
+    {
+      "delta_polynomial": "1",
+      "delta_polynomial_latex": "1",
+      "exterior_dimension": 1,
+      "g": 3,
+      "k": 3,
+      "largest_exterior_jordan_block": 1,
+      "polynomial_degree": 0
+    }
+  ]
+}

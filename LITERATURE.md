@@ -3,6 +3,49 @@
 **Audit cutoff:** 27 November 2026 (UTC).  
 **Purpose:** Check the two local proof notes against their stated sources and recent relevant work; distinguish a shorter presentation of known results from a new theorem or an established priority claim.
 
+## Addendum: streamlined revision, 27 November 2026
+
+The [targeted follow-up audit](audit/streamlined/literature_audit.md) records
+the sources read for the user-supplied streamlined note and subsequent
+proposals. It strengthens the attribution beyond the original review below:
+
+- Hu, arXiv:1909.12296v3, **Corollary 1.7 and equation (5.5)** already give
+  the mixed-degree/squared-singular-value identity. The sharp binomial
+  sandwich is an explicit elementary consequence of that formula.
+- The same paper's **Corollary 5.6** gives uniform norm comparison for every
+  self-morphism, including non-surjective maps. Applying it to iterates,
+  together with the reverse subquotient bound, already yields equality of
+  maximal peripheral Jordan sizes and nilpotency indices. These are
+  deductions from its theorem, not claims that every formulation is printed
+  there.
+- Milne, *Introduction to Shimura Varieties* (2005), **Proposition 8.10**,
+  printed pp. 325–326, is an exact reference for the compatible positive-form
+  principle. The free-module quotient proof in the new note is a short
+  presentation of that classical principle.
+- Hu, [arXiv:2610.18094v1](https://arxiv.org/abs/2610.18094), submitted
+  **13 October 2026**, **Theorem 1.5**, proves exact positive leading
+  asymptotics at strict dynamical-degree breaks in broader
+  rational/meromorphic scope, with error `O(eta^n)` for every
+  `sqrt(lambda_(k-1) lambda_(k+1)) < eta < lambda_k`. The abelian
+  spectral-projection formula identifies the leading constant in our
+  Hermitian norm; it is not a claim to originate the asymptotic theorem.
+- The September Hu–Jiang theorem and Hu's 2024 paper on quasi-unipotent
+  abelian automorphisms provide further precise precedent for polynomial
+  exponents and Jordan calculations.
+
+The new notes make no priority claim for the sharp composition constant or
+bounded-window proof arrangement. The former is proved directly by exterior
+norms and ordinary majorization; the latter is finite Vandermonde inversion
+combined with nef dominance. The old degree-polynomial and exposed-vertex
+presentation remains available for comparison.
+
+For the old power-sum lemma, the inspected Deligne passage is the classical
+trace/log-determinant identity, *Weil I* (1.5.3). It does not justify a
+priority claim for the exact arbitrary finite power-sum pole lemma. The
+appropriate description remains “classical.” Dingxin Zhang's November
+2026 exposition also explicitly treats that traces-to-eigenvalues passage
+as standard.
+
 ## Findings that affect the manuscripts
 
 No fatal mathematical defect emerged from the literature comparison or from my independent reading of the two notes. This is a research audit, not a formal verification or a referee certification.

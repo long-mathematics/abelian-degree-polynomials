@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile the two sources with local pdfLaTeX; no network or shell escape.
+"""Compile the manuscript sources with local pdfLaTeX; no network or shell escape.
 
 Normal use: python3 scripts/build_pdfs.py
 The optional --format argument supports a locally generated pdfLaTeX format.
@@ -20,7 +20,8 @@ import shutil
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPERS = ("short_curve_rh_proof", "abelian_all_degrees_proof")
+PAPERS = ("short_curve_rh_proof", "abelian_all_degrees_proof",
+          "abelian_comparison_streamlined", "abelian_comparison_elementary")
 
 
 def sha256(path: Path) -> str:
