@@ -1,0 +1,208 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.82in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\title{\vspace{-1.5em}A quadratic proof of finite-field RH for curves}
+\author{\small Research note prepared for Christopher D. Long}
+\date{\small 27 November 2026}
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+\noindent
+\textbf{Scope and provenance.} This is an expository arrangement of classical
+Weil--Rosati positivity and the classical power-sum lemma. Milne's account
+already contains the pole argument (p.~2, footnote~1), Hasse's discriminant
+argument (p.~3), and the positivity and spectral-circle theorems
+\cite{Milne}. The recent Alp\"oge--Hexagon--Zhang exposition \cite{Zhang}
+motivated this revisit. The note simplifies our earlier shifted-degree
+argument; no new theorem, first proof, or priority for the method is claimed.
+Its scope is abelian varieties and curves, not arbitrary-sheaf Weil~II.
+
+\paragraph{Standard inputs.}
+Let \(A\) be an abelian variety of dimension \(g>0\) over an algebraically
+closed field \(K\), let \(H\) be a symmetric ample divisor class, and choose
+\(\ell\ne\operatorname{char}K\). Divisor equalities and inequalities are
+numerical; cohomology is geometric \(\ell\)-adic cohomology.
+Write \(V_\ell A=T_\ell A\otimes\Q_\ell\).
+We use three classical facts, independent of finite-field RH:
+quadraticity of \(u\mapsto u^*H\) from the theorem of the cube;
+nonnegative intersections of nef classes; and the degree identity
+\[
+ P_u(t):=\det(t-u\mid V_\ell A)\in\Q[t],
+ \qquad
+ P_u(a/b)=b^{-2g}\deg([a]-[b]u)
+ \quad(a\in\mathbb Z,\ b\in\mathbb Z_{>0}).
+ \tag{1}
+\]
+Here \(\deg v=0\) for a non-isogeny. The top-intersection formula is
+\((v^*H)^g=\deg(v)H^g\). References are \cite{Milne,Kedlaya}.
+
+\begin{lemma}[One quadratic controls the trace]\label{trace}
+For every \(u\in\End(A)\),
+\[
+ \left|\Tr(u\mid V_\ell A)\right|^2
+ \le 4g^2\,\frac{u^*H\cdot H^{g-1}}{H^g}.
+ \tag{2}
+\]
+\end{lemma}
+\begin{proof}
+Quadraticity gives a class \(B_u\) such that
+\[
+ D_u(t):=t^2H-tB_u+u^*H
+   =b^{-2}([a]-[b]u)^*H\quad(t=a/b).
+\]
+The right side is nef. Put
+\(a_u=(u^*H\cdot H^{g-1})/H^g\) and
+\(b_u=(B_u\cdot H^{g-1})/H^g\).
+Then \(t^2-b_ut+a_u\ge0\) for rational \(t\), hence for real \(t\), so
+\(b_u^2\le4a_u\).
+By (1), \(P_u(t)=D_u(t)^g/H^g\) as polynomials.
+Comparing the coefficients of \(t^{2g-1}\) gives
+\(\Tr(u\mid V_\ell A)=g b_u\), proving (2).
+\end{proof}
+
+\begin{lemma}[Power sums]\label{powers}
+If a complex matrix \(M\) satisfies
+\(\left|\Tr(M^n)\right|\le C B^n\) for all \(n\ge1\), with \(B>0\),
+every eigenvalue has modulus at most \(B\).
+\end{lemma}
+\begin{proof}
+For distinct nonzero eigenvalues \(\beta_j\) of multiplicities \(m_j>0\),
+\[
+ \sum_{n\ge1}\Tr(M^n)z^{n-1}
+   =\sum_j\frac{m_j\beta_j}{1-\beta_jz}
+\]
+is holomorphic on \(|z|<B^{-1}\). Every \(\beta_j^{-1}\) is a genuine
+pole, so \(|\beta_j|\le B\).
+\end{proof}
+
+\begin{theorem}[Polarized spectral circle]\label{circle}
+If \(f\in\End(A)\) and \(f^*H=dH\), \(d>0\), every complex characteristic root of \(f\)
+on \(V_\ell A\) has modulus \(\sqrt d\).
+\end{theorem}
+\begin{proof}
+Apply Lemma \ref{trace} to \(f^n\):
+\(\left|\Tr(f^n)\right|\le2g d^{n/2}\).
+Lemma \ref{powers} gives \(|\alpha_i|\le\sqrt d\).
+But \(\prod_{i=1}^{2g}|\alpha_i|=\deg f=d^g\), so equality holds for all \(i\).
+\end{proof}
+
+\noindent
+\textbf{Curve/function-field RH.}
+For a smooth projective geometrically connected curve \(C/\mathbb F_q\),
+apply Theorem \ref{circle} to the \(q\)-power Frobenius endomorphism of its
+Jacobian, base changed to \(\overline{\mathbb F}_q\). An
+\(\mathbb F_q\)-defined symmetric ample line bundle gives \(f^*H=qH\).
+The standard identification
+\(H^1(C)\simeq H^1(\operatorname{Jac}C)\) gives
+\[
+ Z_C(T)=\frac{\prod_{j=1}^{2g}(1-\alpha_jT)}{(1-T)(1-qT)},
+ \qquad |\alpha_j|=\sqrt q.
+\]
+Genus zero is immediate. The trace formula gives
+\(\left|\#C(\mathbb F_{q^n})-q^n-1\right|\le2g q^{n/2}\).
+This application also uses the classical Jacobian identification, rationality
+of the curve zeta function, and the curve trace formula, all independent of RH.
+
+\section*{A second short ending: semisimplicity}
+Another proof of Theorem \ref{circle} gives semisimplicity at the same time.
+It uses finite dimensionality of \(\End^0(A)=\End(A)\otimes\Q\),
+rather than the degree polynomial. Put
+\[
+ Q_H(u)=\frac{u^*H\cdot H^{g-1}}{H^g}.
+ \tag{3}
+\]
+The theorem of the cube makes this a rational quadratic form.
+For a nonzero integral endomorphism \(u\), its image has positive dimension.
+A suitable very ample multiple of \(H\) meets that image properly and
+nontrivially, so its pullback is a nonzero effective divisor.
+Its intersection with \(H^{g-1}\) is positive.
+Clearing denominators gives \(Q_H(u)>0\) for nonzero rational \(u\).
+
+The real extension of \(Q_H\) is positive semidefinite by density.
+If its rational Gram matrix had a nonzero real kernel, it would have
+a nonzero rational kernel. Hence \(Q_H\) is positive definite on
+\(E=\End^0(A)\otimes\R\).
+Left multiplication \(L_f(u)=f\circ u\) satisfies
+\[
+ Q_H(L_fu)=d\,Q_H(u).
+ \tag{4}
+\]
+Thus \(d^{-1/2}L_f\) is a Euclidean isometry. It is diagonalizable over
+\(\C\), with all eigenvalues of modulus one.
+Let \(\mu_f\in\Q[T]\) be the minimal polynomial of \(L_f\) on
+\(\End^0(A)\). It is squarefree, and
+\(\mu_f(L_f)(1)=\mu_f(f)=0\). It therefore annihilates \(f\) on every
+Tate module; its squarefreeness persists over \(\Q_\ell\).
+Thus \(f\) is semisimple there, and all its roots have modulus \(\sqrt d\).
+Using \(H^1(A)\simeq(V_\ell A)^\vee\) with transpose pullback action and
+the classical identity \(H^i(A)\simeq\bigwedge^iH^1(A)\) gives
+semisimplicity and modulus \(d^{i/2}\) on \(H^i(A)\).
+The semisimplicity conclusion is also classical \cite[II, Lemma 1.3]{MilneAV}.
+
+\paragraph{A two-sided extension.}
+For \(f\in\End(A)\), if \(aH\preceq f^*H\preceq bH\), with \(0\le a\le b\),
+then pullback and intersection give
+\[
+ aQ_H(u)\le Q_H(fu)\le bQ_H(u).
+\]
+Here \(D\preceq E\) means that \(E-D\) is nef.
+Complexifying the corresponding Euclidean inner product and applying the
+inequality to eigenvectors of \(L_f\) yields
+\[
+ \sqrt a\le|\alpha|\le\sqrt b
+ \quad\text{for every characteristic root of }f.
+ \tag{5}
+\]
+
+\paragraph{What has been simplified.}
+The first proof replaces the shifted-degree estimate and its moving-scale
+limit by one quadratic discriminant and a power-sum lemma.
+The second replaces both limiting arguments by a Euclidean similarity and
+also proves semisimplicity. Both use classical polarization positivity:
+in Rosati notation, \(\Tr(u^\dagger u\mid V_\ell A)=2g\,Q_H(u)\).
+These are concise proofs of established results. Their prerequisites are
+narrower than arbitrary-sheaf cohomology, and their scope is correspondingly
+restricted to abelian varieties and curves.
+The normalized-isometry principle also appears in Serre's complex
+projective setting \cite{Serre}; no claim of a new spectral principle is made.
+
+\paragraph{A boundary for general sheaves.}
+A rank-two lisse \(\Q_\ell\)-sheaf on \(\operatorname{Spec}\mathbb F_q\) may have Frobenius
+\(\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)\).
+It is pointwise pure of weight zero but its arithmetic Frobenius is not semisimple.
+The continuous representation of \(\widehat{\mathbb Z}\) is obtained
+from its \(\mathbb Z_\ell\)-quotient.
+Purity alone therefore cannot supply the similarity structure (4).
+
+\begin{thebibliography}{9}\small
+\bibitem{Milne}
+J. S. Milne, \emph{The Riemann Hypothesis over Finite Fields: From Weil to
+the Present Day}, 2015, pp.~2--3 and Theorem~1.27, Corollary~1.29,
+Theorem~1.30.
+\url{https://www.jmilne.org/math/xnotes/pRH.pdf}.
+\bibitem{Kedlaya}
+K. S. Kedlaya, \emph{Weil Cohomology in Practice}, Chapter 6.
+\url{https://kskedlaya.org/weil-cohom/chapter-6.html}.
+\bibitem{Zhang}
+D. Zhang, \emph{Notes on an elementary proof of Weil II from Hexagon},
+arXiv:2611.30749, 2026.
+\url{https://arxiv.org/abs/2611.30749}.
+\bibitem{MilneAV}
+J. S. Milne, \emph{Abelian Varieties}, version 2.0, 2008,
+Part II, Lemmas 1.2--1.3.
+\url{https://www.jmilne.org/math/CourseNotes/AV.pdf}.
+\bibitem{Serre}
+J.-P. Serre, \emph{Analogues k\"ahl\'eriens de certaines conjectures de Weil},
+Ann. of Math. \textbf{71} (1960), 392--394.
+\end{thebibliography}
+\end{document}

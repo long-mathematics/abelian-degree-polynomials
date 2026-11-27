@@ -1,0 +1,319 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathsf N}
+\title{\vspace{-1.5em}A degree-polynomial proof of spectral comparison\\
+in every codimension on an abelian variety}
+\author{\small Research note prepared for Christopher D. Long}
+\date{\small 27 November 2026}
+\begin{document}
+\maketitle
+\vspace{-1.2em}
+\begin{abstract}
+We retain the mixed-intersection terms in the shifted-degree method.
+Real nonnegativity of the degree polynomial gives conjugate pairing;
+testing at an exponential scale forces mixed-degree growth at
+strict spectral gaps; log-concavity fills repeated-modulus blocks.
+This gives a concise proof of Hu's established equality
+\(\chi_{2k}=\lambda_k\) and his odd-degree formula, with a quantitative
+byproduct weaker than recent general growth theorems. The proof uses neither the Albert
+classification nor Deligne's weight theorem. It extends our earlier
+first-degree argument. Its exposed-vertex strategy has close precedents
+in Xie's comparison proof. No theorem or method priority is claimed.
+\end{abstract}
+
+\section{Statement and inputs}
+Let \(A\) be an abelian variety of dimension \(g>0\) over an algebraically
+closed field \(K\), and let \(f:A\to A\) be an isogeny. Fix a symmetric ample
+class \(H\), a prime \(\ell\ne\operatorname{char}K\), and an abstract field embedding
+\(\iota:\overline{\Q}_\ell\hookrightarrow\C\). All absolute values on
+cohomology use this embedding; no continuity is intended. Write
+\(\N^k(A)_\R\) for codimension-\(k\) cycles modulo numerical equivalence
+with real coefficients. All divisor-class equalities are numerical. Set
+\[
+ \delta_k(n)=\frac{((f^n)^*H)^k\cdot H^{g-k}}{H^g},\quad
+ \chi_i=\rho(f^*\mid H^i_{\mathrm{\acute et}}(A,\Q_\ell)),\quad
+ \lambda_k=\rho(f^*\mid\N^k(A)_\R).
+ \tag{1}
+\]
+\begin{theorem}[Known comparison theorem; proof below]\label{main}
+For \(0\le k\le g\),
+\[
+ \lim_{n\to\infty}\delta_k(n)^{1/n}=\lambda_k=\chi_{2k}.
+ \tag{2}
+\]
+For \(0\le k<g\),
+\[
+ \chi_{2k+1}=\sqrt{\lambda_k\lambda_{k+1}}.
+ \tag{3}
+\]
+No semisimplicity assumption is needed.
+\end{theorem}
+The even-degree equality is Hu's theorem \cite[Theorem 1.9]{Hu}, and
+the odd-degree formula is already \cite[Remark 5.5]{Hu}.
+Xie proves the even comparison for surjective endomorphisms of all smooth projective varieties
+\cite{Xie}, using Deligne's theorem. Our purpose is a short abelian-specific
+argument with classical prerequisites.
+
+We use the following classical inputs.
+\begin{enumerate}
+\item The characteristic polynomial on the Tate module is the degree
+polynomial:
+\[
+ P_u(t)=\det(t-u\mid V_\ell A),\qquad
+ P_u(a/b)=b^{-2g}\deg([a]-[b]u)\quad(a\in\mathbb Z,\ b>0).
+ \tag{4}
+\]
+Here \(\deg u=0\) for a homomorphism that is not an isogeny;
+the identity is valid even when the characteristic divides \(b\).
+\item The theorem of the cube gives the numerical parallelogram identity;
+pullbacks of \(H\) are nef; mixed intersections of nef classes are
+nonnegative; and \((u^*H)^g=\deg(u)H^g\).
+\item \(H^i(A)\simeq\bigwedge^i H^1(A)\), equivariantly, and cycle classes
+are compatible with pullback and intersection. Tate twists are suppressed;
+all actions are pullbacks by geometric endomorphisms.
+\item For nef \(L,H\), the mixed intersections are log-concave:
+\[
+ (L^kH^{g-k})^2\ge
+ (L^{k-1}H^{g-k+1})(L^{k+1}H^{g-k-1}).
+ \tag{5}
+\]
+\end{enumerate}
+Input (5) is the Khovanskii--Teissier inequality. For ample classes it
+follows from the surface Hodge-index theorem on a general complete
+intersection of \(k-1\) multiples of \(L\) and \(g-k-1\) multiples of \(H\);
+nef classes follow by continuity. These inputs do not use the comparison
+theorem or finite-field RH.
+
+\section{Parity and the mixed-degree inequality}
+\begin{lemma}[Degree positivity]\label{parity}
+For \(u\in\End(A)\), \(P_u(t)\ge0\) for every real \(t\).
+Every real root has even multiplicity, and the complex roots
+can be arranged in conjugate pairs.
+\end{lemma}
+\begin{proof}
+Equation (4) gives nonnegativity at every rational number. Continuity
+gives nonnegativity on \(\R\), excluding an odd-multiplicity real
+root. Nonreal roots pair under conjugation since \(P_u\in\Q[t]\).
+\end{proof}
+This proves the parity conclusion of \cite[Theorem 1.1]{Hu} directly
+from the degree identity stated there as Theorem 2.3.
+Write the root moduli of \(f\), in descending order, as
+\[
+ s_1,s_1,s_2,s_2,\ldots,s_g,s_g,\qquad s_1\ge\cdots\ge s_g>0,
+ \quad U_k=\prod_{j=1}^k s_j^2,\quad U_0=1.
+ \tag{6}
+\]
+Then \(\chi_{2k}=U_k\).
+
+\begin{lemma}[Retaining all mixed degrees]\label{mixed}
+For every real \(t\) and \(n\ge1\),
+\[
+ 0\le P_{f^n}(t)\le
+ 2^g\sum_{j=0}^g\binom gj t^{2(g-j)}\delta_j(n).
+ \tag{7}
+\]
+\end{lemma}
+\begin{proof}
+For rational \(t=a/b\), let
+\[
+ X=b^{-2}([a]-[b]f^n)^*H,\qquad
+ Y=b^{-2}([a]+[b]f^n)^*H.
+\]
+Both are nef, and \(X+Y=2(t^2H+(f^n)^*H)\).
+Consequently \(X^g\le(X+Y)^g\).
+Divide by \(H^g\), apply (4), and expand.
+Both sides of the scalar inequality are polynomials in \(t\),
+so rational density proves the real case.
+\end{proof}
+
+\section{Recovering every exponential growth rate}
+Each \(\delta_j(n)\) is a fixed matrix coefficient of \((f^*)^n\) on
+\(H^{2j}(A)\), obtained by pairing \((f^*)^n[H^j]\) with
+\([H^{g-j}]/H^g\). Finite-dimensional matrix growth gives
+\[
+ \delta_j(n)\le C_j n^{m_j-1}U_j^n,\qquad
+ \limsup_{n\to\infty}\delta_j(n)^{1/n}\le U_j,
+ \tag{8}
+\]
+where \(m_j\) is the largest Jordan-block size among eigenvalues of modulus
+\(U_j\). Constants absorb the subdominant eigenvalues.
+
+\paragraph{Strict gaps.}
+Suppose \(s_k>s_{k+1}\), and choose \(s_{k+1}<R<s_k\).
+Set \(t_n=2R^n\). Exactly \(2k\) roots have modulus greater than \(R\), and
+\[
+ \frac{P_{f^n}(2R^n)}
+ {U_k^nR^{2n(g-k)}}\longrightarrow 2^{2(g-k)}.
+ \tag{9}
+\]
+Indeed \(P_{f^n}(2R^n)\ge0\); in its product of absolute values, factors
+above \(R\) are asymptotic to \(|\alpha|^n\), and factors below \(R\)
+to \(2R^n\).
+The sequence \(U_jR^{2(g-j)}\) has its unique maximum at \(j=k\),
+since the ratio of successive terms is \(s_{j+1}^2/R^2\).
+By (8), all terms \(j\ne k\) in (7) are exponentially smaller than (9).
+Rearranging (7) gives
+\[
+ \delta_k(n)\ge c_k U_k^n\quad\text{for all sufficiently large }n.
+ \tag{10}
+\]
+Thus \(\delta_k(n)^{1/n}\to U_k\) at every strict gap.
+The endpoints are exact:
+\(\delta_0(n)=1=U_0^n\) and
+\(\delta_g(n)=(\deg f)^n=U_g^n\).
+
+\paragraph{Repeated moduli.}
+Let \(s_{a+1}=\cdots=s_b\) be a maximal constant block.
+Its endpoint indices \(a,b\) are strict-gap indices or endpoints.
+Repeated use of (5) gives, for \(a\le k\le b\),
+\[
+ \delta_k(n)\ge
+ \delta_a(n)^{(b-k)/(b-a)}
+ \delta_b(n)^{(k-a)/(b-a)}.
+ \tag{11}
+\]
+Since \(U_k=U_a^{(b-k)/(b-a)}U_b^{(k-a)/(b-a)}\), the endpoint lower
+bounds imply (10) throughout the block. Together with (8), this
+proves existence of all limits in (2) and their equality to \(U_k\).
+No existence theorem for dynamical-degree limits is being assumed.
+The device of tilting until a vertex is the unique maximum, then filling
+linear segments by concavity, also occurs in \cite[\S2.5]{Xie} and
+\cite[Lemma 2.2 and the proof of Theorem 1.5]{HTX}. Here the input that enables it is (7), rather than
+a Frobenius-weight comparison.
+
+\paragraph{Numerical spectral radii.}
+The same \(\delta_k(n)\) is a matrix coefficient on \(\N^k(A)_\R\),
+so its established growth gives \(U_k\le\lambda_k\).
+Conversely, \(\N^k(A)_\Q\otimes\Q_\ell\) is an equivariant quotient of
+the subspace of \(H^{2k}(A,\Q_\ell)\) spanned by algebraic cycle classes:
+a cohomologically zero linear combination has zero intersection with
+every complementary cycle, hence is numerically zero.
+Therefore \(\lambda_k\le\chi_{2k}=U_k\).
+This does not assume that numerical and homological equivalence coincide.
+Finally \(\chi_{2k+1}=U_ks_{k+1}=\sqrt{U_kU_{k+1}}\), proving (3).
+\hfill\(\square\)
+
+\section{Consequences and boundaries}
+\paragraph{Quantitative consequence.}
+There are constants \(c_k,C_k>0\) with
+\[
+ c_k\lambda_k^n\le\delta_k(n)
+ \le C_k n^{m_k-1}\lambda_k^n\qquad(n\ge1).
+ \tag{12}
+\]
+The finitely many initial \(n\) are absorbed into the constants.
+These constants may depend on the fixed \(A,f,H,k\) and realization.
+When the action on \(H^{2k}\) has no nontrivial Jordan block at its
+spectral radius, the degree sequence is comparable to \(\lambda_k^n\).
+No optimal universal bound for \(m_k\) is asserted. This is a byproduct,
+not a new best growth estimate: Hu--Jiang \cite[Theorem 1.2,
+Proposition 5.1]{HJ} prove the stronger relation
+\(\deg_k(f^n)\asymp\lambda_k^n n^{\mu_k}\), with
+\(\mu_k\le2k(g-k)\), for normal projective varieties in arbitrary
+characteristic. Strict log-concavity forces \(\mu_k=0\) there.
+
+\paragraph{Polarized and finite-field cases.}
+If \(f^*H=dH\), then \(\delta_k(n)=d^{kn}\).
+Equation (2), or its \(k=1\) case together with \(\deg f=d^g\),
+gives \(|\alpha|=\sqrt d\) on \(H^1\).
+Exterior powers give modulus \(d^{i/2}\) on \(H^i(A)\).
+Frobenius over \(\mathbb F_q\) has \(d=q\) for an
+\(\mathbb F_q\)-defined ample class. A curve's Jacobian gives
+RH for curves and global function fields.
+Frobenius here means pullback by the Frobenius endomorphism,
+not the untwisted Galois action on divisor classes.
+
+\paragraph{Translations and non-surjective maps.}
+Translation acts trivially on cohomology and numerical classes, so
+the theorem applies to all surjective self-morphisms.
+For a group endomorphism that is not an isogeny, let \(2h\) be the number
+of nonzero characteristic roots.
+For \(k>h\), the operator on \(H^{2k}\) is nilpotent,
+so \(\delta_k(n)=0\) eventually and both spectral radii are zero.
+For the remaining terms, run the strict-gap argument on \(0,\ldots,h\),
+exposing \(h\) by \(0<R<s_h\).
+Log-concavity is used only inside the positive block.
+The case \(h=0\) is immediate.
+
+\begin{corollary}[Two maps with a common polarization]
+If \(u,v\in\End(A)\), \(u^*H=aH\), \(v^*H=bH\), and \(a,b\ge0\), then
+\[
+ (\sqrt a-\sqrt b)^2H\preceq(u-v)^*H
+ \preceq(\sqrt a+\sqrt b)^2H,
+ \tag{13}
+\]
+and consequently
+\[
+ |\sqrt a-\sqrt b|^{2g}\le\deg(u-v)
+ \le(\sqrt a+\sqrt b)^{2g}.
+ \tag{14}
+\]
+Here \(D\preceq E\) means \(E-D\) is nef. The maps need not commute.
+\end{corollary}
+\begin{proof}
+Write \((tu-v)^*H=(at^2+b)H-tB\).
+For every curve \(C\), nefness for rational \(t\) gives a nonnegative
+quadratic, so \(|B\cdot C|\le2\sqrt{ab}(H\cdot C)\).
+This is (13). Monotonicity of top intersections gives (14).
+\end{proof}
+
+\paragraph{Relation to the recent short Weil-II proof.}
+The Alp\"oge--Hexagon--Zhang argument uses generic affine weak Lefschetz,
+finite-field Fourier estimates, and tensor amplification for arbitrary
+lisse and constructible sheaves \cite{Hexagon,Zhang}.
+Here the group law and degree polynomial restrict the scope to abelian
+varieties. This proof strengthens our earlier first-degree argument to
+all codimensions; it does not prove the arbitrary-sheaf weight theorem.
+The established abelian theorem and odd-degree formula are Hu's;
+Xie's theorem has broader scope. The useful presentation here is the
+combination of (7) with the existing exposed-vertex/concavity strategy.
+No historical shortest-proof or proof-novelty claim is made.
+
+\begin{thebibliography}{9}\small
+\bibitem{Hu}
+F. Hu, \emph{Eigenvalues and dynamical degrees of self-maps on abelian
+varieties}, J. Algebraic Geom. \textbf{33} (2024), 265--293.
+arXiv:1909.12296v3, Theorems 1.1, 1.9, and 2.3.
+\url{https://arxiv.org/abs/1909.12296}.
+\bibitem{Milne}
+J. S. Milne, \emph{The Riemann Hypothesis over Finite Fields:
+From Weil to the Present Day}, 2015, \S1.
+\url{https://www.jmilne.org/math/xnotes/pRH.pdf}.
+\bibitem{Hexagon}
+\emph{A short proof of Deligne's bound for Frobenius eigenvalues,
+after Alp\"oge}, contributed by F. Alderliefste,
+Hexagon 2611.00789v2, 24 November 2026.
+\url{https://hexagonmath.org/pdf/2611.00789v2}.
+\bibitem{Zhang}
+D. Zhang, \emph{Notes on an elementary proof of Weil II from Hexagon},
+arXiv:2611.30749, 2026.
+\url{https://arxiv.org/abs/2611.30749}.
+\bibitem{Xie}
+J. Xie, \emph{Numerical spectrums control cohomological spectrums},
+arXiv:2412.01216v2, 2025, Theorem 1.2 and \S2.5.
+\url{https://arxiv.org/abs/2412.01216}.
+\bibitem{HTX}
+F. Hu, T. T. Truong, and J. Xie, \emph{Tate's question, Standard conjecture D,
+semisimplicity and Dynamical degree comparison conjecture},
+arXiv:2503.09432v1, 2025, Lemma 2.2.
+\url{https://arxiv.org/abs/2503.09432}.
+\bibitem{HJ}
+F. Hu and C. Jiang, \emph{Uniform Tur\'an estimates and sharp bounds for
+degree and mixed orbit growth}, arXiv:2609.29877v1,
+24 September 2026.
+\url{https://arxiv.org/abs/2609.29877}.
+\end{thebibliography}
+\end{document}
